@@ -12,6 +12,8 @@
 
 <!-- Wrap the input, button, and output in a div with an initial hidden style -->
 <div id="inputDiv" style="display: none;">
+    <p>Enter some text in the input box below and click the button to send it to Java.</p>
+        
     <input type="text" id="inputText" placeholder="Type something here">
     <button onclick="sendInputToJava()">Send to Java</button>
     <div id="javaOutput" style="margin-top:20px; font-weight: bold;">JavaScript received: </div>
@@ -52,8 +54,8 @@
 
         // here we use the path '/app/cheerpj-meta/examples/Interoperability/example.jar' for deployment on the cloud
         // use the path '/app/example.jar' for local deployment
-        // await cheerpjRunJar('/app/example.jar');
-        await cheerpjRunJar('/app/cheerpj-meta/examples/Interoperability/example.jar');
+        await cheerpjRunJar('example.jar');
+<!--        await cheerpjRunJar('/app/cheerpj-meta/examples/Interoperability/example.jar');-->
 
     })();
 
