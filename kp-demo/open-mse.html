@@ -46,11 +46,11 @@
 <script type="module">
     
     // Reload App function
-    (async function Java_dsdsse_app_DSDSSEApp_reloadMSEAPP(lib, str) {
+    async function Java_dsdsse_app_DSDSSEApp_reloadMSEAPP(lib, str) {
         console.log("Received input from Java: " + str);
         window.alert(str);
         await cheerpjRunJar("/app/KP-DEMO-ON-GITHUB/kp-demo/DQDS.MSE.jar");
-    })();
+    }
 
     (async function() {
     
