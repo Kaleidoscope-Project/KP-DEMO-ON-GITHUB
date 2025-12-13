@@ -49,7 +49,8 @@
      async function Java_dsdsse_app_MseAppAgent_reloadMSEAPP(lib, str) {
         console.log("Received input from Java: " + str);
      //   window.alert(str);
-     await cheerpjRunJar("/app/KP-DEMO-ON-GITHUB/kp-demo/DQDS.MSE.jar");
+     sendHTMLRequestToApp();
+<!--     await cheerpjRunJar("/app/KP-DEMO-ON-GITHUB/kp-demo/DQDS.MSE.jar");-->
     }
     
     async function Java_dsdsse_app_MseAppAgent_nativeSetApplication(lib, myApplication) {
