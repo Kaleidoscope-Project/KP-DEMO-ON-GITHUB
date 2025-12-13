@@ -60,7 +60,7 @@
         // Initialize CheerpJ and pass the container element to create the display
         await cheerpjInit(
            { version: 17, 
-              natives: async Java_dsdsse_app_DSDSSEApp_reloadMSEAPP,
+              natives: {async Java_dsdsse_app_DSDSSEApp_reloadMSEAPP},
            }
         );
         cheerpjCreateDisplay(-1, -1, containerElement);
