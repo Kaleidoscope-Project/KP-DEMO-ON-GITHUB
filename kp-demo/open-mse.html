@@ -61,21 +61,12 @@
 
     (async function() {
     
-        await cheerpjInit(
-            {
-                version: 8,
-                natives: {
-                    Java_dsdsse_app_DSDSSEApp_reloadMSEAPP
-                }
-            }
-        );
-    
-    
     // Get a reference to your div element
     const containerElement = document.getElementById("swing-app-container");
     
     // Initialize CheerpJ and pass the container element to create the display
-    await cheerpjInit({ version: 17 });
+    await cheerpjInit({ version: 17 }, { natives: 
+                    Java_dsdsse_app_DSDSSEApp_reloadMSEAPP });
     cheerpjCreateDisplay(-1, -1, containerElement);
     
     // Run your JAR file
