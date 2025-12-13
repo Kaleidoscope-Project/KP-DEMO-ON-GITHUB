@@ -44,13 +44,20 @@
 
 <!-- Step 3: Add the CheerpJ initialization script -->
 <script type="module">
-
-    // Example function
-    async function Java_adf_app_AdfApp_sendToHTML(lib, str) {
-        window.alert(str);
+    
+    // Reload App function
+    async function Java_dsdsse_app_DSDSSEApp_reloadMSEAPP(lib, str) {
         console.log("Received input from Java: " + str);
+        window.alert(str);
         await cheerpjRunJar("/app/KP-DEMO-ON-GITHUB/kp-demo/DQDS.MSE.jar");
     }
+    
+    // Example function
+    // async function Java_adf_app_AdfApp_sendToHTML(lib, str) {
+    //    window.alert(str);
+    //    console.log("Received input from Java: " + str);
+    //    await cheerpjRunJar("/app/KP-DEMO-ON-GITHUB/kp-demo/DQDS.MSE.jar");
+    //}
 
     (async function() {
     
@@ -58,7 +65,7 @@
             {
                 version: 8,
                 natives: {
-                    Java_adf_app_AdfApp_sendToHTML,
+                    Java_dsdsse_app_DSDSSEApp_reloadMSEAPP
                 }
             }
         );
@@ -73,7 +80,6 @@
     
     // Run your JAR file
     // Starting from hp-demo directory as
-    // https://kaleidoscope-project.github.io/KP-DEMO-ON-GITHUB/kp-demo/open-mse
     await cheerpjRunJar("/app/KP-DEMO-ON-GITHUB/kp-demo/DQDS.MSE.jar");
     })();
 </script>
