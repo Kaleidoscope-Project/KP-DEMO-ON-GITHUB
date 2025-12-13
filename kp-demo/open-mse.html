@@ -43,13 +43,26 @@
 <div id="swing-app-container"></div>
 
 <!-- Step 3: Add the CheerpJ initialization script -->
-<script type="module">
+<script>
     
     // Reload App function
-     async function Java_dsdsse_app_DSDSSEApp_reloadMSEAPP(lib, str) {
+     async function Java_dsdsse_app_MseAppAgent_reloadMSEAPP(lib, str) {
         console.log("Received input from Java: " + str);
      //   window.alert(str);
      //   await cheerpjRunJar("/app/KP-DEMO-ON-GITHUB/kp-demo/DQDS.MSE.jar");
+    }
+    
+    async function Java_dsdsse_app_MseAppAgent_nativeSetApplication(lib, myApplication) {
+        window.myApplication = myApplication;
+        console.log(window.myApplication);
+        console.log(myApplication);
+        console.log("setting application");
+
+        // Make the inputDiv visible after initialization
+      //  document.getElementById('inputDiv').style.display = 'block';
+
+        /* This makes the function 'never' return */
+        return new Promise(() => { });
     }
 
     (async function() {
@@ -58,13 +71,35 @@
         const containerElement = document.getElementById("swing-app-container");
         
         // Initialize CheerpJ and pass the container element to create the display
+        await cheerpjInit(
+            {
+                version: 17,
+                natives: {
+                    Java_dsdsse_app_DSDSSEApp_reloadMSEAPP,
+                    Java_dsdsse_app_MseAppAgent_nativeSetApplication
+                }
+            }
+        );
+        
+        
         await cheerpjInit({ version: 17 }, { natives: {Java_dsdsse_app_DSDSSEApp_reloadMSEAPP }});
+        
         cheerpjCreateDisplay(-1, -1, containerElement);
         
         // Run your JAR file
         // Starting from hp-demo directory as
         await cheerpjRunJar("/app/KP-DEMO-ON-GITHUB/kp-demo/DQDS.MSE.jar");
     })();
+    
+    async function sendHTMLRequestToApp() {
+        // Get the input text from the HTML input box
+<!--        const inputText = document.getElementById("inputText").value;-->
+        console.log("Sending htmlRequestToApp");
+
+        // Call the Java method with the input text
+        await window.myApplication.processHTMLRequestToApp("request");
+        // const response = await window.myApplication.processHTMLRequestToApp("request");
+    }
 </script>
 
 </body>
