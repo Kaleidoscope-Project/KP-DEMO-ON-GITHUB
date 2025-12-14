@@ -47,11 +47,9 @@
     
     // Reload App function
      async function Java_dsdsse_app_MseAppAgent_reloadMSEAPP(lib, str) {
-        console.log("Received input from Java: " + str);
-     //   window.alert(str);
-   //  sendHTMLRequestToApp();
-     await cheerpjRunJar("/app/KP-DEMO-ON-GITHUB/kp-demo/DQDS.MSE.jar");
-     console.log("App r e l o a d e d.");
+         console.log("Received input from Java: " + str);
+         await cheerpjRunJar("/app/KP-DEMO-ON-GITHUB/kp-demo/DQDS.MSE.jar");
+         console.log("App r e l o a d e d.");
     }
     
     async function Java_dsdsse_app_MseAppAgent_nativeSetApplication(lib, myApplication) {
@@ -90,15 +88,15 @@
         await cheerpjRunJar("/app/KP-DEMO-ON-GITHUB/kp-demo/DQDS.MSE.jar");
     })();
     
-    async function sendHTMLRequestToApp() {
-        // Get the input text from the HTML input box
-<!--        const inputText = document.getElementById("inputText").value;-->
-        console.log("Sending htmlRequestToApp");
+<!--    async function sendHTMLRequestToApp() {-->
+<!--        // Get the input text from the HTML input box-->
+<!--&lt;!&ndash;        const inputText = document.getElementById("inputText").value;&ndash;&gt;-->
+<!--        console.log("Sending htmlRequestToApp");-->
 
-        // Call the Java method with the input text
-        await window.myApplication.processHTMLRequestToApp("request");
-        // const response = await window.myApplication.processHTMLRequestToApp("request");
-    }
+<!--        // Call the Java method with the input text-->
+<!--        await window.myApplication.processHTMLRequestToApp("request");-->
+<!--        // const response = await window.myApplication.processHTMLRequestToApp("request");-->
+<!--    }-->
 </script>
 
 </body>

@@ -52,19 +52,50 @@
 <div  id="swing-app-container"></div>
 
 <!-- Step 3: Add the CheerpJ initialization script -->
-<script type="module">
-    (async function() {
-      // Get a reference to your div element
-      const containerElement = document.getElementById("swing-app-container");
+<script>
+    
+    // Reload App function
+    async function Java_sem_app_SemAppAgent_reloadSEMAPP(lib, str) {
+        console.log("Received input from Java: " + str);
+        await cheerpjRunJar("/app/KP-DEMO-ON-GITHUB/kp-demo/MCLN.SEM.jar");
+        console.log("App r e l o a d e d.");
+    }
+    
+    async function Java_sem_app_SemAppAgent_nativeSetApplication(lib, myApplication) {
+        window.myApplication = myApplication;
+        console.log(window.myApplication);
+        console.log(myApplication);
+        console.log("setting application");
 
-      // Initialize CheerpJ and pass the container element to create the display
-      await cheerpjInit({ version: 17 });
+        // Make the inputDiv visible after initialization
+        //  document.getElementById('inputDiv').style.display = 'block';
+
+        /* This makes the function 'never' return */
+        return new Promise(() => { });
+    }
+
+    (async function() {
+        // Get a reference to your div element
+        const containerElement = document.getElementById("swing-app-container");
+        
+        // Initialize CheerpJ and pass the container element to create the display
+        await cheerpjInit(
+            {
+                version: 17,
+                natives: {
+                    Java_sem_app_SemAppAgent_reloadSEMAPP,
+                    ava_sem_app_SemAppAgent_nativeSetApplication
+                }
+            }
+       );
+      
       cheerpjCreateDisplay(1400, 800, containerElement);
 
-      // Run your JAR file  // starting from index.html as
-      // https://kaleidoscope-project.github.io/KP-DEMO-ON-GITHUB/kp-demo/open-sem
+      // Run your JAR file  
+      // starting from index.html as
       await cheerpjRunJar("/app/KP-DEMO-ON-GITHUB/kp-demo/MCLN.SEM.jar");
     })();
+    
     </script>
 
     <script>
