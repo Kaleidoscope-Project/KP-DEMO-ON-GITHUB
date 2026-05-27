@@ -48,7 +48,7 @@
     // Reload App function
      async function Java_dsdsse_app_MseAppAgent_reloadMSEAPP(lib, str) {
          console.log("Received input from Java: " + str);
-         await cheerpjRunJar("/app/KP-DEMO-ON-GITHUB/kp-demo/DQDS.MSE.jar");
+         await cheerpjRunJar("/app/KP-DEMO-ON-GITHUB/kp-show/DQDS.MSE.jar");
          console.log("App r e l o a d e d.");
     }
     
@@ -84,8 +84,8 @@
         cheerpjCreateDisplay(-1, -1, containerElement);
         
         // Run your JAR file
-        // Starting from hp-demo directory as
-        await cheerpjRunJar("/app/KP-DEMO-ON-GITHUB/kp-demo/DQDS.MSE.jar");
+        // Starting from kp-show directory as
+        await cheerpjRunJar("/app/KP-DEMO-ON-GITHUB/kp-show/DQDS.MSE.jar");
     })();
     
 <!--    async function sendHTMLRequestToApp() {-->
