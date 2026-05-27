@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta http-equiv=" Content-Type" content="text/html; charset=iso-8859-1"/>
+    <title>- McLN Modeling Formalism</title>
+    <link rel="shortcut icon" type="image/png" href="../common/images/mcln-logo.png">
+
+    <meta name="author" content="Vlad Lakin"/>
+    <meta name="version" content="last updated 08/17/2018"/>
+    <meta name="keywords" content="dining philosophers, discrete, event, dynamical, system, simulation, simulating,
+            logic, behavior, based, robotics, control, software, asynchronous, concurrent, architecture, modeling, automaton,
+            Petri, Net"/>
+    <meta name="news_keywords" content="Discrete Symbolic Dynamical Systems & Models,
+            dining philosophers, dynamical system, behaviour based robotics"/>
+    <meta name="description" content="Discrete Symbolic Dynamical Systems & Models"/>
+
+    <!-- style sheets   -->
+    <link rel="stylesheet" href="../common/stylesheets/common.css">
+    <link rel="stylesheet" href="../common/stylesheets/all-pages-popups.css">
+
+    <!--/*   S c r i p t s   */-->
+    <script type="text/javascript" src="../common/javascripts/common-javascripts.js"></script>
+    <script type="text/javascript" src="../common/javascripts/jquery-3.7.1.min.js"></script>
+    <script type="text/javascript" src="../common/javascripts/all-pages-popup-scripts.js"></script>
+
+    <!--/*   S t y l e    S h e e t s   */-->
+
+    <style>
+        body {
+            background-image: url("../common/images/line-bg.png");
+        }
+
+        .open-the-site {
+            border: 1px solid #888888;
+            border-radius: 12px;
+            width: 80px;
+            background-color: #FFE8E8;
+            color: #555555;
+            padding:  0px 5px 1px 5px;
+            box-shadow: 1px 1px 1px #777;
+            cursor: pointer;
+            text-decoration: none;
+            font: 12px Georgia, Helvetica;
+        }
+
+        .open-the-site:active {
+            box-shadow: 0px 0px 1px #666;
+            transform: translateY(1px);
+            transform: translateX(1px);
+        }
+    </style>
+
+</head>
+
+<body>
+<div class="container"> <!-- Main Container -->
+
+    <img  style="height: 6px; width: 100%;" src="../common/images/two-red-lines.png"/>
+
+    <a href="../kp-vsec/equation-calculator.html">
+        <img src="../common/images/prev.png" alt="Previous Page" title="To prev page"></a>
+
+    <a style="margin-left: 7pt;margin-right: 7pt;"  href="../short.html#sol.3.0">
+        <img src="../common/images/up.png" alt="Main Page" title="To main page"></a>
+
+    <a href="../kp-mse-views/mse-screenshots.html">
+        <img src="../common/images/next.png" alt="Next Page" title="To next page"></a>
+
+    <!-- =================================================================================== -->
+
+    <!--    H e a d e r  font: 14px Ariel, Helvetica; -->
+
+    <div class="text-container">
+
+        <div class="page-header">
+            Multicolored Logical Net Modeling<br>Formalism
+        </div>
+
+        <div style="margin-top: 33px; margin-bottom: 0px; "> <!-- Content holder -->
+
+            <p>
+                This page introduces the Multicolored Logical Net Modeling Formalism, or McLN MF. It is
+                intended for creating graphical models of qualitative dynamical systems and reproducing
+                their behavior on a computer screen.
+
+                Respectively, in order to enable, not only representing properties of the modeled
+                systems and their states, in the models, but also reproducing changes of the state of
+                the properties, depending on changes of the state of other properties, the McLN models are
+                created based on the notion of the bipartite directed graph, the elements of which are
+                considered to be the simple discrete devices that are endowed with the capability of taking
+                different qualitative states, on the one hand, and having a certain number of inputs and
+                outputs necessary for interaction of the elements with each other, on the other hand.
+            </p>
+
+            <p>
+                These models, thus, are defined as the collections of elements representing Properties of
+                the modeled systems, and such elements as the Conditions triggering changes of state of the
+                Properties, Dependencies of the state of the Conditions on the state of the Properties, and
+                the Dependencies of the state of the Properties on the state of the Conditions. Therefore,
+                McLN models are, naturally, created in the form of the graphical nets that are characterized
+                by their structure, and by the mechanism of behavior based on the ability of the elements of
+                the models to perform associated operations of the Algebra of Symbols.
+
+<!--                of the modeled systems that is enabled by endowing-->
+<!--                the elements of the structure with the ability to perform operations of the Algebra of-->
+<!--                Symbols.-->
+            </p>
+
+            <p class="section-header">
+                McLN Model Structure and Behavior
+            </p>
+
+            <p>
+                Being based on the structure of the bipartite directed graph, the McLN model is constructed of
+                two types of nodes. The Property nodes are depicted as the big circles or big hexagons,
+                states of which are denoted by solid color that fills their surfaces. The Condition nodes
+                are the conditions for changes of states of Property nodes. They are depicted as the small
+                circles that are filled with the solid white color and the sign "+" drawn on it, when the
+                condition is satisfied, or by the plain solid gray color, when it is not satisfied. Two
+                types of Arcs, directed from the Property nodes to the Conditions nodes and from the Conditions
+                nodes to the Property nodes, represent the dependence of these nodes on one another. A simple
+                example of the McLN model is presented in Figure 1.
+            </p>
+<!--            represent the dependence of these nodes on one another-->
+<!--            respectively-->
+            <img class="center" src="Illustrations/Three-Rules.png" />
+
+            <p style = "text-align: center;">
+                <b>Figure 1.</b> One Property depends on three situations.
+            </p>
+
+<!--            <p>-->
+<!--                Property nodes represent properties and states of the properties of the modeled systems, where-->
+<!--                the states are denoted as solid color that fills the circles or the hexagons. Conditions nodes-->
+<!--                are the conditions of changes of states of Property nodes. They represent facts of existence of-->
+<!--                expected situations that cause Property nodes, dependent on occurrence of situations, to change-->
+<!--                their states. Hence, states of Conditions nodes may either represent the fact that the expected-->
+<!--                situation is recognized or the fact that it is not recognized. These states are represented as-->
+<!--                the solid white color with symbol "+" drawn on it, or as just the solid gray color, respectively.-->
+<!--            </p>-->
+
+            <p>
+                Arcs directed from a group of Property nodes to a Condition node represent the dependence of the fact
+                of recognition of the expected situation on a certain combination of states of Property nodes. These
+                arcs are marked with the colored dots, particular colors of which stand for those expected states
+                that the arcs’ input Properties should have in order for their combination to represent the situation
+                that is deemed as the existing and could be recognized.
+            </p>
+
+<!--            <p>-->
+<!--                Arcs directed from a group of the Property nodes to a Condition node represent dependence of the fact-->
+<!--                of recognition of an expected situation on a certain combination of states of Property nodes. These-->
+<!--                arcs are marked with the colored dots, particular colors of which stand for those expected states-->
+<!--                that the arcs’ input Properties should have in order for the situation to be deemed as-->
+<!--                existing and recognized.-->
+<!--            </p>-->
+
+            <p>
+                Arcs directed from a Condition node to a group of Property nodes represent the dependence
+                of the state of the Property nodes on the fact of the existence of the expected situation. These
+                arcs have small arrow heads marked with the colors of the proposed states, which
+                the arcs' output Property nodes should take when the state of the Condition node indicates the fact
+                of recognition of the existing expected situation.
+            </p>
+
+            <p>
+                So, the structure of the McLN literally means that the state of each Condition node depends on
+                the state of one or more of its input Property nodes, characterizing a particular expected situation
+                determined by the colors of the dots marking the Properties' output arcs.
+<!--            </p>-->
+
+<!--            <p>-->
+                Whereas, the state of each Property node depends on the state of
+                one or more of its input Condition nodes, and takes state represented by the color of the arrowhead
+                of the arc directed form the Condition node to the dependent Property node in case when the state of
+                the Condition indicates that all its input Properties represent expected situation denoted by
+                the color of the dots of the Condition's input (and the Properties' output) arcs.
+            </p>
+
+            <p>
+                <em>Exclusion</em>: Cases when the state of a Condition indicates that the expected situation
+                is not recognized, or the case when two or more Conditions suggest that the Property, dependent
+                on different recognized situations, should take different states, are ignored as contradicting,
+                and the current state of the dependent property stays unchanged.
+            </p>
+
+            <p>
+                Example, presented in Figure 1, is created in the
+                <span class="popup-link" onmouseenter="openPopup(event, gmf02)"
+                      onmouseleave= "closePopup(gmf02)">
+                        <a class="popup-link" href = "../kp-mse/mse-screenshots.html" target="_blank">
+                    <em>"Qualitative Dynamical System Modeling & Simulation Environment"</em></a></span>
+                - the software application supporting development of the McLN models and simulation of
+                their behavior.
+            </p>
+
+
+<!--            !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!-->
+            <p class="sub-section-centered-header">
+                More on Multicolored Logical Nets, Structure,<br>Behavior and Simulation Examples
+            </p>
+
+            <p>
+                <b>The Front Page</b> is the home page of the stand-alone website, titled “Discrete
+                Symbolic Dynamical Systems & Models”, or “DSDS&M”. It describes the structure and behavior
+                of the McLN models of the qualitative dynamical systems.
+                <a style="text-align: center" href="https://www.dsdsam.com/" target="_blank"
+                   class="open-the-site">Open Front Page</a>
+            </p>
+
+            <p>
+                <b>The McLN MF</b> page describes qualitative dynamical system modeling
+                technique
+                based on McLN MF, the McLN models structure, and their behavior. It
+                illustrates the description using simple but straightforward examples.
+                <a style="text-align: center" href="https://www.dsdsam.com/mcln-mf" target="_blank"
+                   class="open-the-site">Open McLN MF</a>
+            </p>
+
+            <p>
+                <b>The McLN Viewer</b> page is the Executor of several pre-created McLN models that can be chosen
+                from the dropdown menu and run by using four control buttons: Start, Stop, One Step, and Reset.
+                <a style="text-align: center" href="https://www.dsdsam.com/mcln-viewer" target="_blank"
+                   class="open-the-site">Open McLN Viewer</a>
+            </p>
+
+<!--            <p>-->
+<!--                The Kaleidoscope project's website titled: “Discrete Symbolic Dynamical Systems-->
+<!--                & Models” introduces Multicolored Logical Net (MclN) Modeling-->
+<!--                Formalism (MF) and describes qualitative dynamical systems models development technique-->
+<!--                based on McLN MF.<br>-->
+<!--                <a style="text-align: center" href="https://www.dsdsam.com/mcln-viewer" target="_blank"-->
+<!--                   class="open-the-site">Go to the "Home View" of the Site.</a>-->
+<!--            </p>-->
+
+<!--            <p>-->
+<!--                The site also illustrates behavior of the models of qualitative systems. Page "McLN Viewer" suggests to-->
+<!--                pick-->
+<!--                up a pre-developed model from menu, start simulation of the model, control the process-->
+<!--                of its simulation with buttons presented on the page and observe the simulated behavior-->
+<!--                of the model in the Model Presentation Space and the Behavior Log areas of the screen.<br>-->
+<!--                <a style="text-align: center" href="https://www.dsdsam.com/mcln-viewer" target="_blank"-->
+<!--                   class="open-the-site">Go to the&nbsp;"McLN Viewer"&nbsp;of&nbsp;the&nbsp;Site.</a>-->
+<!--            </p>-->
+
+        </div> <!-- end of content holder -->
+
+    </div> <!-- end of text-container -->
+
+    <!-- =================================================================================== -->
+
+    <br>
+
+    <a href="../kp-vsec/equation-calculator.html">
+    <img src="../common/images/prev.png" alt="Previous Page" title="To prev page"></a>
+
+    <a style="margin-left: 7pt;margin-right: 7pt;"  href="../short.html#sol.3.0">
+        <img src="../common/images/up.png" alt="Main Page" title="To main page"></a>
+
+    <a href="../kp-mse-views/mse-screenshots.html">
+        <img src="../common/images/next.png" alt="Next Page" title="To next page"></a>
+
+<!--    <div class="space-below-footer"></div>-->
+    <div class="end-of-page-red-line-1"></div>
+    <div class="end-of-page-red-line-2"></div>
+    <div class="space-below-footer"></div>
+
+    </div> <!-- End of Main Container -->
+
+    <!-- =================================================================================== -->
+    <!--  P O P   U P S  1 -->
+    <!-- =================================================================================== -->
+
+        <!--  -->
+        <!--  -->
+        <!--  -->
+<!--        <div class="popup-style" id="elementGMF01ToPopup">-->
+<!--            <div style="text-align: center;">-->
+<!--                <b>Section: Qualitative System Behavior Specification</b>-->
+<!--            </div>-->
+<!--            <p>-->
+<!--                This section is located on the page: "Qualitative Dynamical Systems, Their Behavior and-->
+<!--                Mathematical Modeling Technique". It proposes a way of describing behavior of particular-->
+<!--                qualitative dynamical system by listing rules of dependence of each state of each property-->
+<!--                of the system on the state of groups of properties, occurrence of which causes-->
+<!--                transition of the dependent property from its current to the next state, which is-->
+<!--                deemed the "proposed state of the property", provided by the rule.-->
+<!--            </p>-->
+<!--            <p class="clickable-link">-->
+<!--                Clicking the link opens named section in a new tab.-->
+<!--            </p>-->
+<!--        </div>-->
+
+        <!--                   -->
+        <!-- p o p u p s  1/1. -->
+        <!--                   -->
+        <div class="popup-style" id="elementGMF02ToPopup">
+            <div style="text-align: center;">
+                <b>Page: Qualitative Dynamical Systems Modeling & Simulation Environment</b></div>
+            <p>
+                This page is a brief description of the Qualitative Dynamical Systems Modeling
+                & Simulation Environment, or QDS MSE. It is arranged as several screenshots,
+                demonstrating major features of the application, which are accompanied by short
+                explanations.
+            </p>
+            <p class="clickable-link">
+                Clicking the link opens named page in a new tab.
+            </p>
+        </div>
+
+    </body>
+</html>
