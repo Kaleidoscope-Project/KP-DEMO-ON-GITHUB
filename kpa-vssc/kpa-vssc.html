@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Development of Simulation in Shuffled Per-Equation Mode is not started yet -->
+<!--Application-->
+<!--Conjunction-->
+<!--Disjunction-->
+<!--Equivalence-->
+<!--Production-->
+<!--Injection-->
+<!--Inclusion-->
+<!--Infusion-->
+<head>
+    <meta charset="UTF-8">
+
+    <title>- Vector Space Calculator</title>
+    <link rel="shortcut icon" type="image/png" href="../common/images/mcln-logo.png">
+
+    <!-- style sheets   -->
+    <link rel="stylesheet" href="../common/stylesheets/common.css">
+    <link rel="stylesheet" href="../common/stylesheets/all-pages-popups.css">
+
+    <!-- java scripts   -->
+    <script type="text/javascript" src="../common/javascripts/common-javascripts.js"></script>
+    <script type="text/javascript" src="../common/javascripts/jquery-3.7.1.min.js"></script>
+    <script type="text/javascript" src="../common/javascripts/all-pages-popup-scripts.js"></script>
+
+    <style>
+        body {
+            background-image: url("../common/images/line-bg.png");
+        }
+    </style>
+
+    <!--/*   S c r i p t s   */-->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<!--    <script type="text/javascript" src="../common/javascripts/jquery-3.7.1.min.js"></script>-->
+
+    <script type="text/javascript" src="javascripts/AoS.js"></script>
+
+    <script type="text/javascript" src="javascripts/input-controller.js"></script>
+    <script type="text/javascript" src="javascripts/model-view-creator.js"></script>
+    <script type="text/javascript" src="javascripts/simulation-model.js"></script>
+    <script type="text/javascript" src="javascripts/simulation-controller.js"></script>
+
+    <script type="text/javascript" src="javascripts/utils.js"></script>
+
+
+
+    <!--/*   M o d e l   S t o r a g e   */-->
+    <script type="text/javascript" src="javascripts/model-storage.js"></script>
+    <!--/*   Introductory Model   */-->
+    <script type="text/javascript" src="javascripts/models/default-model-definition-0-0.js"></script>
+    <!--/*   M o d e l s :  F i r s t   G r o u p   */-->
+    <script type="text/javascript" src="javascripts/models/model-definition-1-1.js"></script>
+    <script type="text/javascript" src="javascripts/models/model-definition-1-2.js"></script>
+    <script type="text/javascript" src="javascripts/models/model-definition-1-3.js"></script>
+    <!--/*   M o d e l s :  S e c o n d   G r o u p   */-->
+    <script type="text/javascript" src="javascripts/models/model-definition-2-1.js"></script>
+    <script type="text/javascript" src="javascripts/models/model-definition-2-3.js"></script>
+    <script type="text/javascript" src="javascripts/models/model-definition-2-2.js"></script>
+    <!--/*   M o d e l s :  T h i r d   G r o u p   */-->
+<!--    <script type="text/javascript" src="javascripts/models/model-definition-3-1.js"></script>-->
+
+    <!--    <script type="text/javascript" src="javascripts/AoSCalculatorController.js"></script>-->
+
+    <!--    <script type="text/javascript" src="javascripts/CalculatorContext.js"></script>-->
+    <!--    <script type="text/javascript" src="javascripts/AoSAlgebra.js"></script>-->
+    <!--    <script type="text/javascript" src="javascripts/AoSToken.js"></script>-->
+    <!--    <script type="text/javascript" src="javascripts/ErrorMessageStore.js"></script>-->
+    <!--    <script type="text/javascript" src="javascripts/AoSExpressionTokenizer.js"></script>-->
+    <!--    <script type="text/javascript" src="javascripts/AoSExpressionParser.js"></script>-->
+
+    <!-- style sheets   -->
+<!--    <link rel="stylesheet" href="../common/stylesheets/common.css">-->
+
+    <style type="text/css">
+<!--        body {-->
+<!--            background-image: url("../common/images/line-bg.png");-->
+<!--        }-->
+<!--        .container {-->
+<!--            position: absolute;-->
+<!--            background: #FFFFFF;-->
+<!--            top: 10px;-->
+<!--            left: 70px;-->
+<!--            right: 70px;-->
+<!--            background-color: transparent;-->
+<!--        }-->
+
+        /*   H e a d e r   */
+<!--        .header {-->
+<!--            position: relative;-->
+<!--            top: 15px;-->
+<!--        }-->
+<!--        .line-stretch{-->
+<!--            background: #FF0000;-->
+<!--            width: %100;-->
+<!--            height: 1px;-->
+<!--        }-->
+<!--        .red-line{-->
+<!--            position: relative;-->
+<!--            background: #FF0000;-->
+<!--            margin-left: auto;-->
+<!--            margin-right: auto;-->
+<!--            text-align: center;-->
+<!--            width: 900px;-->
+<!--            height: 1px;-->
+<!--        }-->
+<!--        .white-line{-->
+<!--            background: #FFFFFF;-->
+<!--            width: %100;-->
+<!--            height: 1px;-->
+<!--        }-->
+
+<!--        .text-container{-->
+<!--            position: relative;-->
+<!--            margin-left: auto;-->
+<!--            margin-right: auto;-->
+<!--            width: 630px;  &lt;!&ndash; 615pt = 7.5 &ndash;&gt;-->
+<!--		    font-size:10px;-->
+<!--        }-->
+
+        /*  ///////////////////////////   E x p r e s s i o n   S e l e c t o r   //////////////////////////////////  */
+
+/* C8984A + 2 1 = C89A4B  a little more water */
+/* C8984A + 1 2 = C8994C  a little more water */
+/* C8984A + 1 1 = C8994B  a little more water */
+/* C8984A + 2 2 = C89A4C  more water */
+
+/* #FFFFF8; ce9b4e #edd8af;*/
+/* border: 2px solid rgb(190,170,170); border: 2px solid #edd8af; rgb(210,175,138); 214,183,148 rgb(200,200,200);   */
+       .dropdown{
+            margin-top: 3px;
+            border-radius:22px;
+            border: 2px solid #C89A4C; /* C8984A + 2 2 = C89A4C   #c89F4F; rgb(205,160,135) rgb(210,162,120) rgb(210,175,138);    */
+            background: #FFFFF2;  /*rgb(200,150,20 );    */
+             width: 430pt;
+            height: 33px;
+            outline: none;
+            box-sizing:border-box;
+        }
+
+        /*  background: #FFFFFA; background: #FFDFBB;   */
+
+        .dropdown-option{
+            background:rgb(250,250,245);
+            height: 32px;
+            color:#000000;
+            font-weight:plain;
+            font-size: 10pt;
+        }
+
+       /*    M o d e l   */
+    /*
+    border-radius:12px;  border: 1px solid #DDDDDD;  background-color: #FFFFFF;  background-image: url("images/bg-5.jpg");
+    background-image: url("images/dots-bg.png");    border-radius:10px; background-color: #FEFEFE;  border: 1px solid #DDDDDD;
+    */
+
+    .model-flex-container-X {
+            padding:0px 30px 0px 30px;
+            float: center;             /* float:auto; width: fit-content; width:  650px; // This places the container in the center of the serrounding block */
+            display:inline-flex;             /*  display: flex // Makes this container a FlexBox */
+            align-items: center;       /* // Aligns items vertically */
+            justify-content: center;   /* // Aligns items horizontally */
+            height: 120pt;
+            background-image: url("images/bg-2.png");
+             /* #F0F0F0;  #F4F4F4;   */
+            background-color: #fffdfd; /*  background-color: #F4F4F4;   F7FCFF bluish */
+            border-radius:12px;  /*  8px;   */
+            border: 1px solid #CCCCCC; /*  EEEEEE */
+        }
+
+        .model-view-ara-holder {
+            position: relative;
+            margin-left: auto;
+            margin-right: auto;
+            width: 900px;
+
+<!--            background-color: #ff0000;-->
+        }
+
+        .model-spase-flex-container {
+            display: inline-flex;
+            flex-direction: column;
+            float: center;             /* // This places the container in the center of the surrounding block */
+            align-items: left;       /* // Aligns items vertically */
+            justify-content: left;   /* // Aligns items horizontally */
+            background-image: url("images/bg-2.png");
+             /* #F0F0F0;  #F4F4F4;   */
+            background-color: #fffdfd; /*  background-color: #F4F4F4;   F7FCFF bluish width: 400pt; */
+            border-radius:7px;  /* 12px; 8px;   */
+            border: 1px solid #CCCCCC; /*  EEEEEE */
+        }
+
+        .model-name-container{
+            display: flex;
+            flex-direction: row;
+            height: 10pt;
+            padding:0px 17px 6px 7px;
+            font-size: 13pt;
+        }
+
+        .simulation-status-container{
+            display: flex;
+            flex-direction: row;
+            height: 10pt;
+            padding:0px 17px 6px 7px;
+            font-size: 13pt;
+        }
+
+        .model-flex-container {
+            padding:0px 30px 0px 30px;
+            float: center;             /* // This places the container in the center of the serrounding block */
+            display: inline-flex;      /* // Makes this container a FlexBox */
+            align-items: center;       /* // Aligns items vertically */
+            justify-content: center;   /* // Aligns items horizontally */
+            height: 160pt;             /* // Aligns items horizontally */
+        }
+
+<!--        .bg-image {-->
+<!--background-image: url("images/bg-2.png");-->
+<!--background-color: #cccccc;-->
+<!--height: 500px;-->
+<!--background-position: center;-->
+<!--background-repeat: no-repeat;-->
+<!--background-size: cover;-->
+<!--position: relative;-->
+<!--}-->
+
+        .equation-flex-element {
+            margin: 0pt 5pt 0pt 5pt;
+        }
+
+        .model-matrix {
+            background-color: #FFFFEE;
+        }
+
+        .model-vector {
+            width:20px;
+            background-color: #FFFFEE;
+            float: center;
+        }
+
+        .equation-connector {
+            width:1px;
+            float: center;
+        }
+
+        table {
+          width:54px;
+        }
+
+        table, th, td {
+          border: 1px solid #888888;
+          border-collapse: collapse;
+          font-size: 7pt;
+        }
+
+        th, td {
+          height:17px;  /* Real height is (17 + 3 = 20)  */
+          text-align: center;
+          vertical-align:bottom;
+          padding: 0px;
+        }
+
+        /*   Buttons   */
+
+        .control-button {
+            margin: 10pt 3pt 0pt 3pt;
+            border-radius: 8px;
+            border: 1px solid rgb(185,185,185);
+            font-size: 10pt;
+            color: #000;
+            background: #EEEEEE;
+            text-align: center;
+            text-shadow: 1px 1px 1px #eee;
+            outline: none;
+            width: 160px;
+            height: 25px;
+            padding-top: 1px;
+            box-shadow: 0px 1px 2px #777;
+            background-image: linear-gradient(to top left,
+                                          rgba(0, 0, 0, .2),
+                                          rgba(0, 0, 0, .2) 0%,
+                                          rgba(0, 0, 0, 0));
+        }
+        .control-button:hover {
+            cursor: pointer;
+        }
+        .control-button:active {
+            box-shadow: inset -2px -2px 3px rgba(255, 255, 255, .6),
+            inset 2px 2px 3px rgba(0, 0, 0, .6);
+        }
+
+        .vc {
+            font-size:10px;
+            border: 1px solid #888888;
+            padding: 5px 0px 1px 0px;
+        }
+
+        /*   F o o t e r   */
+
+        .end-of-page-red-line-1{
+            position: relative;
+            background: #FF0000;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+            width: 160px;
+            height: 1px;
+        }
+
+        .end-of-page-red-line-2{
+            position: relative;
+            background: #FF0000;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+            width: 80px;
+            height: 1px;
+        }
+
+        .space-below-footer{
+            margin-left: auto;
+            margin-right: auto;
+            padding: 20px 0px 20px 0px;
+            width: %100;
+        }
+
+<!--        /*   P o p u p s   */-->
+
+<!--        .operation-name{-->
+<!--            font-size:10pt;-->
+<!--            font-weight: bold;-->
+<!--            color:#333333;-->
+<!--            text-align:left;-->
+<!--            margin-bottom: 7pt;"-->
+<!--        }-->
+
+<!--       .row-container {-->
+<!--            display: flex;-->
+<!--            align-items: center;-->
+<!--            font-family:family:verdana; font-size:10px;-->
+<!--        }-->
+<!--       .fixed-width-left-paragraph {-->
+<!--            margin-top: 0px;-->
+<!--            display: inline-block;-->
+<!--            width: 155px;-->
+<!--            overflow: hidden;-->
+<!--            text-overflow: ellipsis;-->
+<!--            padding: 1px 6px 0px 6px;-->
+<!--            vertical-align: middle;-->
+<!--        }-->
+
+<!--       .fixed-width-right-paragraph {-->
+<!--            margin-top: 0px;-->
+<!--            display: inline-block;-->
+<!--            width: 155px;-->
+<!--            overflow: hidden;-->
+<!--            text-overflow: ellipsis;-->
+<!--            padding: 1px 0px 0px 6px;-->
+<!--            vertical-align: middle;-->
+<!--        }-->
+
+    </style>
+
+</head>
+<body onload="init(), removeHashTag()" onresize="onResize()">
+<div class="container">
+    <img  style="height: 6px; width: 100%;" src="../common/images/two-red-lines.png" alt=""/>
+
+    <a href="../kpa-xdnf/kpa-xdnf.html">
+        <img src="../common/images/prev.png" alt="Previous Page" title="To prev page"></a>
+
+    <a style="margin-left: 7pt;margin-right: 7pt;"  href="../index.html#sol.2.0">
+        <img src="../common/images/up.png" alt="Main Page" title="To main page"></a>
+
+    <a href="../kpa-mcln/kpa-mcln.html">
+        <img src="../common/images/next.png" alt="Next Page" title="To next page"></a>
+
+    <div class="text-container"> <!-- Page Upper Text Container -->
+
+        <div class="page-header">
+            Qualitative Dynamical Systems Vector<br>State-Space Matrix Equation Calculator
+<!--            Qualitative Systems Vector State-Space<br>and Matrix Model Equation Calculator-->
+        </div>
+
+        <!--  /////////////////////////////////   U p p e r   D e s c r i p t i o n   /////////////////////////////  -->
+
+        <div style="margin-top: 33px; margin-bottom: 0pt; text-align: justify;"> <!-- Content holder -->
+            <p>
+                This page is an introduction to the Qualitative Dynamical Systems Modeling Technique solution that provides
+                a way of defining  these systems models in the form of a vector state space equation. It lets 
+                reproduce the behavior of the systems by running interactive computations of the equations and visualizes
+                the process of the simulation. To begin, please follow the explanation written beneath the
+                cluster of the Simulation Control Buttons.
+            </p>
+        </div>
+
+        <!--  //////////////////////////   M o d e l   S e l e c t i o n   D r o p d o w n   //////////////////////  -->
+
+        <div style="text-align: center;"><b>The Model Chooser. Select a predefined model to be simulated</b>
+                <p>
+                    Models Are Grouped, and Are Selected by Clicking on the Items Under the Group Headers
+                </p>
+                <select class="dropdown"
+                        style=" font-weight: plain; font-size: 10pt; text-align-last:center;"
+                        onClick="dropDownSelectionHandler(this)"
+                        onfocusout="dropdownFocusOutHandler(event)"
+                >
+                    <!--                <select class="dropdown" id="dropdown" onchange="dropDownSelectionHandler(this)"-->
+                    <!--                        style=" font-weight: plain; font-size: 10pt; text-align-last:center;"-->
+                    <!--                        onfocus="dropdownFocusHandler(event)"-->
+                    <!--                        onfocusout="dropdownFocusOutHandler(event)">-->
+
+                    <option class="dropdown-option" value="exp00">
+                        &nbsp;<<< Introductory model is presented. Fiddle with it, or choose from other demo models. >>>
+                        <!--                    &nbsp;<<< Expressions are selected by clicking on the variable's initial values in the dropdown list-->
+                        <!--           78320A             >>>-->
+                    </option>
+
+                    <!--  Group 1  -->
+                    <optgroup style="font-weight:plain; background:#643214; color:white;" label="State Driven Behavior"
+                              value="c01">
+
+                        <option class="dropdown-option" value="exp01" style="height: 25px; margin-top: 3px;">
+                            Model 1.1: State driven model. Each system state is a situation.
+                        </option>
+                        <option class="dropdown-option" value="exp02">
+                            Model 1.2: State driven model with partial sub-situations.
+                        </option>
+<!--                        <option class="dropdown-option" value="exp03">-->
+<!--                            Model 1.3: Self & Input driven model. Situations are reordered. Full situations input.-->
+<!--                        </option>-->
+                        <option class="dropdown-option" value="exp03">
+                            Model 1.3: Two State driven sub-processes with two independent partial sub-situations.
+                        </option>
+
+                    </optgroup>
+
+                    <!--  Group 2  -->
+                    <optgroup style="font-weight:plain; background:#643214; color:white"
+                              label="Mixed: State & Input Driven Behavior" value="c02">
+
+                        <option class="dropdown-option" value="exp03">
+                            Model 2.1: State Input driven model. Full situations input. Situations are reordered.
+                        </option>
+
+                        <option class="dropdown-option" value="exp22">
+                            Model 2.2: Two State Input driven processes. One process is finite, the other is endless.
+                        </option>
+
+                        <option class="dropdown-option" value="exp01">
+                            Model 2.3: One State Input driven process. Sporadic situations, fragmentary state changes.
+                        </option>
+
+                    </optgroup>
+
+                    <!--  Group 3  -->
+<!--                    <optgroup style="font-weight:plain; background:#643214; color:white"-->
+<!--                              label="Multiple Concurrent Interacting Processes" value="c03">-->
+
+<!--                        <option class="dropdown-option" value="exp01">-->
+<!--                            Model 3.1:-->
+<!--                        </option>-->
+
+<!--                    </optgroup>-->
+                </select>
+
+                <div style="margin-top: 11pt; margin-bottom: 4pt; font-size: 15pt; text-align: center;">
+                    Model Representation and Simulation Area
+                </div>
+                </div>
+<!--            </center>-->
+<!--        </div>-->
+
+    </div> <!-- End of Page Upper Text Container -->
+
+    <!--  Introductory Model 723100 color:#85200C;///////////////   M o d e l   S i m u l a t i o n   A r e a   ///////////////////////////////////////////  -->
+
+    <!-- Model Display Area id not under Txt Container because it is wider than Text Container -->
+    <center>
+        <div class= "model-view-ara-holder">
+
+        <div id="model-simulation-display" class="model-spase-flex-container" style="text-align:center;">
+
+            <div id="model-name-panel" class="model-name-container" style="justify-content: space-between;text-align: left;">
+                <a id="modelNameHeaderID" style="text-align: left; ">Model name:
+                    <span id="modelNameViewID" style="text-align:left;color:#80300C; font-weight: bold">
+                        Introductory model</span></a>
+            </div>
+
+        <!--        <div style="margin-top: 11pt; margin-bottom: 4pt; font-size: 15pt; text-align: center;">Model Simulation Area</div>-->
+        <div id="model-simulation-space" class="model-flex-container">
+
+            <!--/*   Next State Vector    */-->
+
+            <div class="equation-flex-element" style="float:left; margin-left:3px; margin-right:10px;">
+                <table id="next-state-vector" class="model-vector">
+                </table>
+            </div>
+
+            <!--/*   Equal Sign    */-->
+
+            <div class="equation-flex-element" style="float:left; margin-right:10px;">
+                <table id="equal-sign" class="equation-connector" style="vertical-align: middle; border: 0px">
+                </table>
+            </div>
+
+            <!--/*   Current State Vector 2   */-->
+
+            <div class="equation-flex-element" style="float:left; margin-right:10px;">
+                <table id="current-state-vector-2" class="model-vector">
+                </table>
+            </div>
+
+            <!--/*   Application Sign    */-->
+
+            <div class="equation-flex-element" style="float:left; margin-right:10px;">
+                <table id="state-application-sign" class="equation-connector"
+                       style="vertical-align: middle; border: 0px">
+                </table>
+            </div>
+
+            <!--/*   Proposed State Vector    */-->
+
+            <div class="equation-flex-element" style="float:left; margin-right:10px;">
+                <table id="proposed-state-vector" class="model-vector">
+                </table>
+            </div>
+
+            <!--/*   Generation Matrix    */-->
+
+            <div class="equation-flex-element" style="float:left; margin-right:10px;">
+                <table id="generation-matrix" class="model-matrix">
+                </table>
+            </div>
+
+            <!--/*   Recognized Situations Vector By Generation Matrix Multiplication Sign    */-->
+
+            <div class="equation-flex-element" style="float:left; margin-right:10px;">
+                <table id="gen-multiplication-sign" class="equation-connector"
+                       style="vertical-align: middle; border: 0px">
+                </table>
+            </div>
+
+            <!--/*   Recognized Situations Vector    */-->
+
+            <div class="equation-flex-element" style="float:left; margin-right:10px;">
+                <table id="recognized-situations-vector" class="model-vector">
+                </table>
+            </div>
+
+            <!--/*   Recognition Matrix    */-->
+
+            <div class="equation-flex-element" style="float:left; margin-right:10px;">
+                <table id="recognition-matrix" class="model-matrix">
+                </table>
+            </div>
+
+            <!--/*   Current State Vector By Recognition Matrix Multiplication Sign    */-->
+
+            <div class="equation-flex-element" style="float:left; margin-right:10px;">
+                <table id="rec-multiplication-sign" class="equation-connector"
+                       style="vertical-align: middle; border: 0px">
+                </table>
+            </div>
+
+            <!--/*   Current State Vector 1   */-->
+
+            <div id="state-vector-holder" class="equation-flex-element" style="float:left; margin-right:10px;">
+                <table id="current-state-vector-1" class="model-vector">
+                </table>
+            </div>
+
+            <!--/*   Application Sign    */-->
+
+            <div id="input-app-sign-holder" class="equation-flex-element" style="float:left; margin-right:10px;">
+                <table id="inp-application-sign" class="equation-connector" style="vertical-align: middle; border: 0px">
+                </table>
+            </div>
+
+            <!--/*  Input vector   */-->
+
+            <div id="input-vector-holder" class="equation-flex-element" style="float:left; margin-right:20px;">
+                <table id="input-state-vector" class="model-vector">
+                </table>
+            </div>
+
+        </div>
+
+        <div id="simulation-status" class="simulation-status-container" style="justify-content: space-between;">
+            <span id="autoSimulationStatusViewID" style="visibility: hidden; width: 150pt; text-align: left;">Auto</span>
+            <span id="modelBehaviorModeViewID" style=" width: 200pt; text-align: center; ">Behavior mode</span>
+            <span id="simulationStepExecutedViewID" style="width: 150pt; text-align: center;">No steps were executed</span>
+        </div>
+
+        </div> <!-- End of Model View Display Area-->
+        </div>  <!-- End of Model View Area Holder -->
+        <!-- $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$-->
+
+        <!-- Page Lower Text Container -->
+        <div class="text-container" style=" color: #333; margin-top:  5pt;text-align: center; ">
+<!--            font-size:19px;-->
+            <button class="control-button" id="one-step-simulation-button" disabled
+                    onclick="twoStepsSimulationButtonClicked()">Major Step
+            </button>
+
+            <button class="control-button" id="two-steps-simulation-button" disabled
+                    onclick="threeStepsSimulationButtonClicked()">Medium Step
+            </button>
+
+            <button class="control-button" id="micro-steps-simulation-button" disabled
+                    onclick="microStepsSimulationButtonClicked()">Micro Step
+            </button>
+
+            <br/>
+
+            <button class="control-button" id="start-stop-simulation-button" disabled
+                    onclick="startStopSimulationButtonClicked()">Start Auto Simulation
+            </button>
+
+            <button class="control-button" id="reset-simulation-button" disabled
+                    onclick="resetSimulationButtonClicked()">Reset Simulation
+            </button>
+
+            <!--  /////////////////////////////////   L o w e r   D e s c r i p t i o n   /////////////////////////////  -->
+
+            <div style="margin-top:   0pt; margin-bottom: 0pt; text-align: justify;">
+
+                <p style="margin-top: 15pt; margin-bottom: 10pt; font-size: 16pt; text-align: center;">
+                    Here is What You Can Do on This Page
+                </p>
+
+                <p>
+                    Select a predefined model to be simulated from the Model Chooser’s dropdown list.
+                    Use the three:
+                    <span style="color: #222;"><em>"Micro Step"</em></span>,
+                    <span style="color: #222;"><em>"Medium Step"</em></span>, and
+                    <span style="color: #222;"><em>"Major Step"</em></span> buttons,
+                    located in the upper row of the buttons, to execute equation simulation steps.
+                    Use the <span style="color: #222;"><em>"Start/Stop Auto Simulation"</em></span>
+                    toggle button to start or stop automatic repetition of simulation steps. This button
+                    starts simulation either in the mode remaining after the last useed single-step button 
+                    (if any of them have been used previously) or in the <span style="color: #222;"><em>"Major Step"</em></span>
+                    mode, when none of the single-step buttons was used yet.
+                    Use the
+                    <span style="color: #222;"><em>"Reset Simulation"</em></span> button to reset the simulation
+                    to its initial state, letting it be executed from the beginning.
+                </p>
+                
+        </div>  <!-- End of Page Text Container -->
+
+        <!-- This Centers Model View Area -->
+        </center>
+
+    <!-- =================================================================================== -->
+
+    <a href="../kpa-xdnf/kpa-xdnf.html">
+        <img src="../common/images/prev.png" alt="Previous Page" title="To prev page"></a>
+
+    <a style="margin-left: 7pt;margin-right: 7pt;"  href="../index.html#sol.2.0">
+        <img src="../common/images/up.png" alt="Main Page" title="To main page"></a>
+
+    <a href="../kpa-mcln/kpa-mcln.html">
+        <img src="../common/images/next.png" alt="Next Page" title="To next page"></a>
+
+    <p>
+        <div class="end-of-page-red-line-1"></div>
+        <div class="end-of-page-red-line-2"></div>
+        <div class="space-below-footer"></div>
+    </p>
+
+    </div> <!-- End of Main Container -->
+    </body>
+</html>

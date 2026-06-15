@@ -1,0 +1,2 @@
+# Ignore Intellij Idea project-specific files.
+.idea/workspace.xml
