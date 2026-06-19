@@ -181,10 +181,10 @@
             <div style="margin-top: 33px; margin-bottom: 0pt; text-align: justify;"> <!-- Content holder -->
 
                 Algebra of Symbols (AoS) and AoS-based Extended Disjunctive Normal Form (XDNF) expression
-                calculator are parts of the Kaleidoscope Project.
+                calculator are part of the Kaleidoscope Project.
 
                 <p>
-                    The AoS is the algebraic system used as the mathematical means for describing causal
+                    The AoS is the algebraic system used as the mathematical framework for describing causal
                     dependencies among characteristics of a qualitative system, in the form of a system
                     of state equations. In these equations, the dependent variable is located on the left
                     side of the equation, while the XDNF expression that computes the value of the variable
@@ -198,23 +198,23 @@
                 </p>
 
                 <p>
-                    Presented on this page, the XDNF Expression Calculator provides several illustrative examples of
-                    the XDNF equations. An XDNF equation can be selected from the dropdown list of the
-                    Equation Selector and shown in the Equation View field below. The selected equation is evaluated
-                    by clicking on the green "Compute" button, located below the Equation View field.
-                    The result of the evaluation is presented in the field "Computation result".
+                    The XDNF Expression Calculator on this page features several illustrative examples of
+                    the XDNF equations. An XDNF equation can be chosen using the Equation Selector dropdown 
+                    and viewed in the Equation View field below. The selected equation is evaluated
+                    by clicking the green "Compute" button below the Equation View field.
+                    The outcome appears in the "Computation result" field. 
                 </p>
             </div>
             <!--<br>-->
             <div>
-                Equation Selector. Select a predefined XDNF equation to be computed<br>
+                Equation Selector. Choose a predefined XDNF equation to be computed<br>
                 <select class="dropdown" id="dropdown" onchange="dropDownSelectionHandler(this)"
                         style=" font-weight: plain; font-size: 10pt; text-align-last:center;"
                         onfocus="dropdownFocusHandler(event)"
                         onfocusout="dropdownFocusOutHandler(event)">
 
                     <option class="dropdown-option" value="exp00">
-                        <<< Equation is selected by clicking on highlighted lines >>>
+                        <<< Equation can be selected by clicking highlighted lines >>>
                     </option>
 
 <!--                    <option class="dropdown-option" value="exp00">-->
@@ -268,7 +268,7 @@
                 </select>
             </div>
 
-            <div style="margin-top: 20pt; margin-bottom: 8pt;">Selected expression's variables are initialized as follows:
+            <div style="margin-top: 20pt; margin-bottom: 8pt;">Variables for the selected expression are initialized as follows:
                 <div class="variables" id="variables" style=" font-weight: plain; font-size: 11pt;
             height:27px; line-height:27px; table-cell; vertical-align: middle;">
                     <!--abc = "L"; &nbsp;&nbsp;xyz = "D"; &nbsp;&nbsp;lmn = "T";-->
@@ -329,21 +329,20 @@
 
                 <p>
                     <strong>Representation&nbsp;conventions:</strong>
-                    All variables are represented as one to three lowercase letters and digits long.&nbsp;
-                    All constants are represented as one uppercase letter. It is assumed all variable
-                    values and constants are taken from the AoS domain set <b>D</b>, defined as:
+                    All variables consist of one to three lowercase letters and digits.&nbsp;
+                    All constants are represented as one uppercase letter. All variable values and 
+                    constants are drawn from the AoS domain set <b>D</b>, defined as:
                     <b>D</b>&nbsp;=&nbsp;{A,&nbsp;B,&nbsp;C,&nbsp;...,&nbsp;Z}.
 
                 </p>
 
                 <p>
-                    <strong>A note</strong>. The last (third) example, selectable from the dropdown of the Equation
-                    Selector, represents a case where the value of the left-hand-side variable <b>y</b> of
-                    the equation is also the argument of the right-hand-side XDNF expression. That makes the
-                    just-computed variable <b>y</b> become the expression's updated argument. Clicking the
-                    "Compute" button again allows you to compute the expression one more time. But this
-                    time with the new argument. The example can, thus, be executed repeatedly, allowing it to
-                    iterate the variable <b>y</b> through its various values.
+                    <strong>Note</strong>. The last (third) example  in the Equation Selector dropdown 
+                    showcases a scenario where the value of the left-hand-side variable <b>y</b> of
+                    the equation is also the argument of the right-hand-side XDNF expression. That makes
+                    the newly computed variable <b>y</b> become the expression's updated argument. Clicking the
+                    "Compute" button again recomputes the expression using this new argument. The example can 
+                    therefore be executed repeatedly to iterate the variable <b>y</b>.
                 </p>
 
             </div>

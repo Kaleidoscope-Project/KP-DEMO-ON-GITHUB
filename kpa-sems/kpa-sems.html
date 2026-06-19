@@ -21,7 +21,7 @@
     <!-- java scripts   -->
     <script type="text/javascript" src="../common/javascripts/common-javascripts.js"></script>
     <script type="text/javascript" src="../common/javascripts/jquery-3.7.1.min.js"></script>
-    <script type="text/javascript" src="../common/javascripts/all-pages-popup-scripts.js"></script>
+    <script type="text/javascript" src="../common/javascripts/kp-demo-on-github-popups-scripts.js"></script>
 
     <style>
         body {
@@ -49,49 +49,60 @@
     <div class="text-container">
 
         <div class="page-header">
-            Space Exploration Mission // Agent-Robot Behavior Simulator
+            Space Exploration Mission: Agent-Robot Behavior Simulator
         </div>
 
         <div style="margin-top: 33px; margin-bottom: 0px; font-family:family:verdana; text-align: justify;
         font-size:17px; color: #222; ">   <!-- Content holder -->
 
             <p>
-                This page is a brief presentation of the Space Exploration Mission Software -
-                an acting agent-robot behavior simulator that is implemented as a Java desktop application.
-                The Application is an imaginary Mission
-                Control and Monitoring Center (MCMC) interacting with the remotely acting Agent-Robot - a rover that may
-                execute different operations. The task of the Agent is to explore the designated space, collect
-                environmental parameters, and transmit its current coordinates packed with collected data to MCMC
-                in accordance with scheduled exchange sessions. The Agent can be controlled manually - via manual
-                controls, or automatically - by the McLN-based Agent Behavior Controller (ABC). The ABC takes input
-                from Agent's sensors, recognizes situations arising dynamically,
-                makes real-time control decisions, and activates actions relevant to the situations by communicating
-                with Agent's local operation controllers. A screenshot of the layout of the application's panels
-                is presented in <b>Figure 1</b>.
+                This page presents a brief overview of the Space Exploration Mission software—an active 
+                agent-robot behavior simulator implemented as a Java desktop application.
+
+                The application simulates a Mission Control and Monitoring Center (MCMC) interacting 
+                with a remote Agent—a robot rover capable of executing various operations.
+
+                The Agent’s task is to explore the designated space, collect environmental parameters, 
+                and transmit its current coordinates—along with the collected data—to the MCMC in 
+                accordance with scheduled data-exchange sessions.
+
+                The Agent can be controlled manually via on-screen controls, or automatically by the 
+                McLN-based Agent Behavior Controller (ABC).
+
+                The ABC processes inputs from the Agent's sensors, recognizes arising situations, 
+                makes real-time control decisions, and initiates actions by communicating with 
+                the Agent's local operation controllers.
+
+                A screenshot of the application's layout is presented in <b>Figure 1</b>.
+                
             </p>
 
             <center>
                 <p><br>
-                    <img style="width: 500px; height: 300px;" src="app-screenshots-small/Sem-App-Small.png"/>
+                    <img style="width: 510px; height: 330px;" src="app-screenshots-small/Sem-App-Small-New.png"/>
                 </p>
-                <p><b>Figure 1.</b> The Space Exploration Mission application screen snapshot. </p>
+                <p>
+                    <b>Figure 1.</b> The Space Exploration Mission application snapshot.
+                </p>
             </center>
 
             <p>
-                The Space Exploration Mission application screen is an imitation of the MCMC dashboard.
-                It consists of following control and monitoring panels: (1) Manual Agent Control panel (left
-                panel),
-                (2) McLN-based Agent Behavior Controller (center panel), (3) Agent Observation Monitors -
-                the cluster of monitors occupying the right part of the screen, displaying a) the remote
-                world and the agent in 3D view, while it accomplishes its exploratory mission,
-                b) agent in 2D front and side views, c) the world view as it is
-                seeing from the cabin of the Rover, and (4) Running Text Panel - the panel located below
-                the monitor panels presenting received from the remote Rover data.
+                The application interface mimics an MCMC dashboard.
+                It consists of the following control and monitoring panels:
+                (1) The Manual Agent Control panel (left),
+                (2) the McLN-based Agent Behavior Controller (center),
+                (3) the Agent Observation Monitors—a cluster of monitors on the right side of the 
+                screen displaying: 
+                    a) a 3D view of the remote world and the agent executing its mission, 
+                    b) 2D front and side views of the agent, 
+                    c) the world view from the rover's cabin, and
+                (4) the Running Text Panel—located below the monitors—displaying data received 
+                from the remote rover.
             </p>
 
             <p>
-                The McLN model, utilized by the ABC, has been developed in the Modeling & Simulation
-                Environment software application described on the page:
+                The McLN models utilized by the ABC were developed using the Modeling & Simulation Environment 
+                software application, which is described on the page:
                 <span class="popup-link" onmouseenter="openPopup(event, sem01)"
                       onmouseleave= "closePopup(sem01)">
                         <a class="popup-link" href = "../kpa-mses/kpa-mses.html" target="_blank">
@@ -125,6 +136,26 @@
 
     <div class="space-below-footer"></div>
 
-    </div> <!-- End of Main Container --> 
+    </div> <!-- End of Main Container -->
+
+    <!-- =================================================================================== -->
+    <!--  P O P   U P S  1 -->
+    <!-- =================================================================================== -->
+    
+    <!--                   -->
+    <!-- p o p u p s  1/1. -->
+    <!--                   -->
+    <div class="popup-style" id="elementSEM01ToPopup">
+        <div style="text-align: center;">
+            <b>Page: Qualitative Dynamical Systems Modeling & Simulation Environment</b></div>
+        <p>
+            This page features several snapshots of the application’s screens and
+            provides brief explanations of the content of the screenshots.
+        </p>
+        <p class="clickable-link">
+            Click the link to opens this page.
+        </p>
+    </div>
+
     </body>
 </html>
