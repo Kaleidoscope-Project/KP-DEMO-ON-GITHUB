@@ -68,6 +68,29 @@
             transform: translateY(1px);
             transform: translateX(1px);
         }
+        
+        ol {
+            margin-bottom: 1.2em;
+            padding-left: 0px;
+        }
+        
+        ul {
+            margin-bottom: 1.2em;
+            padding-left: 15px;
+        }
+        
+        
+        dd {
+            margin-bottom: 0.2em;
+        }
+        
+         .exception-block {
+            background-color: #f7fafc;
+            border-left: 4px solid #e53e3e;
+            padding: 15px;
+            margin-top: 20px;
+            border-radius: 0 4px 4px 0;
+        }
     </style>
 
 </head>
@@ -99,17 +122,49 @@
         <div style="margin-top: 33px; margin-bottom: 0px; "> <!-- Content holder -->
 
             <p>
-                This page introduces the Multicolored Logical Net (McLN) modeling formalism. This formalism is
-                intended for creating graphical models of qualitative dynamical systems and reproducing
-                their behavior on a computer screen.
-
-            <p>
-                To represent system state and simulate how it evolvs over time, 
-                McLN models utilize a bipartite directed graph, where the elements of the graph: Properties, 
-                Conditions and connecting them Arcs act as simple, discrete devices. 
-                The Properties and Conditions can hold distinct qualitative states and use dedicated 
-                input and output Arcs to interact with one another.
+                This page introduces the Multicolored Logical Net (McLN) graphical modeling formalism
+                designed for creating qualitative dynamical systems simulation models that can be
+                developed and executed on a computer screen as well as printed on paper.
             </p>
+            
+<!--                This page introduces the Multicolored Logical Net (McLN) modeling formalism. This formalism is-->
+<!--                intended for creating graphical models of qualitative dynamical systems and reproducing-->
+<!--                their behavior on a computer screen.-->
+            
+            <p>
+                Developed not only to reproduce the behavior of qualitative 
+                dynamical systems but also to visualize property states and their 
+                transitions the McLN model is a graphical 
+                representation of all model elements, their current states, and their underlying dependence 
+                relations. Accordingly, McLN 
+                models are defined as a bipartite directed graph consisting of two types of
+                nodes—<b>Property nodes</b> and <b>Conditions nodes</b>—and two types of connecting 
+                arcs: <b>Recognition arcs</b> directed from Properties to Conditions and <b>Generation arcs</b> 
+                directed from Conditions to Properties. Figure 1 illustrates a basic example of a 
+                small McLN model structured as a bipartite directed graph. 
+                
+<!--                A simple Example, representing -->
+<!--                a small McLN model defined as a bipartite directed graph, is shown in Figure 1.-->
+                
+<!--                directed from Properties -->
+<!--                to Conditions and from Conditions to Properties.-->
+<!--                arcs directed from Properties -->
+<!--                to Conditions and from Conditions to Properties. -->
+            </p>
+
+            <img class="center" src="Illustrations/Three-Rules.png" />
+
+            <p style = "text-align: center;">
+                <b>Figure 1.</b> One Property depends on three situations.
+            </p>
+            
+
+            <!--                To represent system state and simulate how it evolvs over time, -->
+<!--                McLN models utilize a bipartite directed graph, where the elements of the graph: Properties, -->
+<!--                Conditions and connecting them Arcs act as simple, discrete devices. -->
+<!--                The Properties and Conditions can hold distinct qualitative states and use dedicated -->
+<!--                input and output Arcs to interact with one another.-->
+           
            <!-- <p>
                 Respectively, in order to enable, not only representing properties of the modeled
                 systems and their states, but also reproducing changes of the state of
@@ -129,22 +184,388 @@
 <!--                by their structure, and by the mechanism of behavior based on the ability of the elements of-->
 <!--                the models to perform associated operations of the Algebra of Symbols.-->
 <!--            </p>-->
-
+            
             <p class="section-header">
-                McLN Model Structure and Behavior
+                The McLN Model Structure
             </p>
             
             <p>
-                Property nodes are depicted as large circles or hexagons, with their current states 
-                represented by solid background colors. The Condition nodes are the conditions 
-                enabling changes of states of Property nodes. They are depicted as small white 
-                circles containing a '+' sign when the condition is satisfied, or by the plain 
-                solid gray color, when it is not satisfied. Two types of Arcs, directed from the 
-                Property nodes to the Condition nodes and from the Condition nodes to the Property 
-                nodes, represent state dependence of the Arcs's output nodes on their input nodes.
-                A simple example of the McLN model is presented in Figure 1.
+<!--                Thus, in general, the structure of the McLN dictates that the state of each -->
+<!--                Condition node always depends on the state of one or more of its input Property -->
+<!--                nodes, whereas, the state of each Property node may depend on the state of -->
+<!--                one or more of its input Condition nodes. -->
+<!--                -->
+                In general, the structure of an McLN model is determined by a set of Properties 
+                (determined corresponding to the properties of the modeled system) and a set of 
+                Conditions (corresponding to the various operational situations that can arise within the system). 
+<!--                determined as the number of various situations that can arise in the -->
+<!--                system. -->
+
+                The states of the Conditions are governed by their dependencies on the 
+                states of one or more Properties, while the states of the Properties are 
+                governed by their dependencies on the states of one or more Conditions.
+                
+<!--                The connections between these elements are governed by state dependencies: the -->
+<!--                states of the Conditions depend on the states of one or more Properties, while -->
+<!--                the states of the Properties depend on the states of one or more Conditions.-->
+<!--                -->
+<!--                Meanwhile, the way of connecting Properties to Conditions and the Conditions -->
+<!--                to the Properties is always determined by the dependence of the states of Conditions -->
+<!--                on the state of one or several Properties, and the dependence of the states of Properties -->
+<!--                on the state of one or several Conditions. -->
+                
+<!--                In other words, the arcs (representing the -->
+<!--                dependence of the state of some graph nodes on others) are always directed from -->
+<!--                Properties to Conditions and from the Conditions to the Properties. -->
+                
+<!--                A simple example of the structure of an McLN model is shown in Figure 1.-->
+
+
+
+
+                <!--                Meanwhile, the way of connecting Properties (the-->
+<!--                number of which is determined by the number of properties of the modeled system) to Conditions (the-->
+<!--                number of which is determined by the number of situations possible in the model)-->
+<!--                is always determined by the dependence of the state of Conditions on the state -->
+<!--                of several Properties, while the way of connecting the Conditions to the Properties -->
+<!--                is always determined by the dependence of the state of Properties on the state -->
+<!--                of several Conditions. In other words, directed Arcs (representing the-->
+<!--                dependence of the state of some graph nodes on others) are always directed from-->
+<!--                Properties to Conditions and from Conditions to Properties.-->
+            </p>
+
+            <dl>
+                <dt><strong>Property:</strong></dt>
+                <dd style="margin-left: 5pt;">
+                    A node that represents the properties and the properties states of the modeled system.
+                    They are depicted graphically as large circles or hexagons, and their current states are
+                    denoted by a solid background color.
+                </dd>
+                <dt><strong>Condition:</strong></dt>
+                <dd style="margin-left: 5pt;">
+                    A node that determines conditions for some Property states to change. They
+                    signify status of the fact of presence, or absence, of situations in a model, that cause changes
+                    in the Properties states. Conditions are depicted as small white circles containing
+                    a "+" sign when the condition is satisfied (the situation exists), or as solid
+                    gray circles if the condition is not satisfied (the situation does not exist).
+                </dd>
+                <dt><strong>Recognition Arc:</strong></dt>
+                <dd style="margin-left: 5pt;">
+                    The arc is directed from Properties to Conditions; they represent
+                    dependence of states of the arc' output Condition on the states of its input Property.
+                    These arcs are marked with either small circles, called dot, or small arrowheads. The color of a dot or an 
+                    arrowhead is that expected state
+                    which the arc' input Property must take for its output Condition to be considered satisfied.
+                </dd>
+                <dt><strong>Generation Ar:</strong>c</dt>
+                <dd style="margin-left: 5pt;">
+                    The arc is directed from Conditions to Properties; they represent
+                    dependence of states of the arc' output Property on the states of its input Condition.
+                    These arcs are marked with arrowheads. The color of an arrowhead determines the state
+                    that the arc' output Property takes when its input Condition indicates that the expected
+                    situation is present in the model.
+                </dd>
+            </dl>
+<!--            <p>-->
+<!--            <ul>-->
+<!--                <li><strong>Properties:</strong> These represent the physical or logical attributes and state configurations of the modeled system. They are depicted graphically as large circles or hexagons, and their current states are visually denoted by a solid background color.</li>-->
+<!--                <li><strong>Conditions:</strong> These represent the operational requirements for a Property's state to change. They signify the presence or absence of specific system situations that trigger state transitions in the Properties. Graphically, Conditions are depicted as small white circles containing a "+" sign when the condition is satisfied (the situation exists) or as solid gray circles when the condition is not satisfied (the situation does not exist).</li>-->
+<!--                <li><strong>Recognition Arcs:</strong> These are directed arcs from Properties to Conditions that represent the dependency of an output Condition on the states of its input Properties. They are structurally marked with small circles. The color of each circle defines the expected state that the input Property must adopt for the output Condition to be considered satisfied. Because their primary function is to validate state configurations, these links are termed "Recognition arcs."</li>-->
+<!--                <li><strong>Generation Arcs:</strong> These are directed arcs from Conditions to Properties that represent the dependency of an output Property on the states of its input Conditions. These arcs are structurally marked with arrowheads. The color of the arrowhead determines the specific state that the output Property will adopt when its input Condition signals that the expected situation is present. Because their primary function is to produce new state configurations, these links are termed "Generation arcs."</li>-->
+<!--            </ul>-->
+<!--            </p>-->
+            
+<!--            <p>-->
+<!--                <b>The&nbsp;Properties</b> represent the properties and the properties states of the modeled system.-->
+<!--                They are depicted graphically as large circles or hexagons, and their current states are -->
+<!--                denoted by a solid background color.-->
+<!--            </p>-->
+
+<!--            <p>-->
+<!--                <b>The&nbsp;Conditions</b> are the conditions for some Property states to change. They-->
+<!--                signify status of the fact of presence, or absence, of situations in a model, that cause changes-->
+<!--                in the Properties states. Conditions are depicted as small white circles containing-->
+<!--                a "+" sign when the condition is satisfied (the situation exists), or as solid-->
+<!--                gray circles if the condition is not satisfied (the situation does not exist).-->
+<!--            </p>-->
+<!--            -->
+<!--            <p>-->
+<!--                <b>The&nbsp;Recognition&nbsp;arcs</b> are directed from Properties to Conditions; they represent -->
+<!--                dependence of states of the arc' output Condition on the states of its input Property. -->
+<!--                These arcs are marked with small circles. The color of a circle is that expected state -->
+<!--                which the arc' input Property must take for its output Condition to be considered satisfied.-->
+<!--            </p>-->
+<!--            -->
+<!--            <p>-->
+<!--                <b>The&nbsp;Generation&nbsp;arcs</b> are directed from Conditions to Properties; they represent -->
+<!--                dependence of states of the arc' output Property on the states of its input Condition. -->
+<!--                These arcs are marked with arrowheads. The color of an arrowhead determines the state -->
+<!--                that the arc' output Property takes when its input Condition indicates that the expected -->
+<!--                situation is present in the model. -->
+<!--            </p>-->
+
+            <p>
+                Thus, in the structure of the McLN model:
+                <br><br> The Recognition arcs are the outgoing elements of Properties, and incoming
+                elements of Conditions; while, the Properties are the input elements and
+                the Conditions are the output elements of these arcs.
+
+                <br><br> The Generation arcs are the outgoing elements of Conditions, and incoming
+                elements of Properties; whereas, the Conditions are the input elements and the Properties 
+                are the output elements of these arcs.
+            </p>
+            
+            <p>
+                Accordingly:
+                <br><br>A single Property or a group of Properties connected to a single Condition 
+                via directed Recognition arcs are regarded as the input Property or Properties of that Condition, 
+                whereas the Condition is regarded as the output Condition of its input Properties.
+
+                <br><br>Similarly, a single Condition or a group of Conditions connected to a single Property 
+                via directed Generation arcs are regarded as the input Condition or Conditions of that Property, 
+                whereas the Property is regarded as the output Property of its input Conditions.
 
             </p>
+            
+<!--            <p>-->
+<!--                A simple example of the structure of an McLN model is shown in Figure 1.-->
+<!--            </p>-->
+
+            
+
+            <p>
+                In the example above, Recognition arcs directed from three distinct groups of Properties 
+                to their output Condition represent dependence of three Conditions on their three input Properties, 
+                which characterize three distinct situations. 
+                These arcs are marked with colored dots that stand for those expected states that their 
+                input Properties should hold in order for their combination to represent the expected 
+                situation that can be recognized.
+                
+<!--                In the example above, Recognition arcs directed from three distinct groups of Properties -->
+<!--                to their output Condition represent dependence of that Conditions on their input Properties, -->
+<!--                which characterize three distinct situations.-->
+<!--&lt;!&ndash;              -->
+<!--                These-->
+<!--                arcs are marked with the colored dots of the particular colors which stand for those expected states-->
+<!--                that their input Properties should have in order for their combination to represent the expected situation-->
+<!--                that can be recognized.-->
+            </p>
+
+            <p>
+                The Generation arcs directed from three Conditions to a single Property represent dependence 
+                of that Property on the three facts of presence of the three expected situations. These
+                arcs have small arrowheads marked with colors representing the proposed states. The
+                Property takes one of the three proposed states when the state of any of the three input
+                Conditions indicates the fact that its corresponding expected situation has been recognized.
+            </p>
+
+            <div class="definition-border">
+                <div class="definition-inner-border" style="padding: 0px 11px 0px 11px;">
+            <p>
+            <ol style="list-style-type: none; padding-left: 0px;">
+                <li>
+                    In summary, the McLN structure topology specifies that:
+                </li>
+                <li>
+                    (a)  the state of each Condition depends on the
+                    collective states of its input Properties (characterizing particular expected situation),
+                    and is structurally defined by the colored dots marking the Properties' outgoing and the
+                    Condition's incoming Recognition arcs, and
+                </li>
+                <li>
+                    (b) the state of each Property depends on
+                    the single or multiple states of its input Conditions (representing the facts of whether
+                    expected situations have been recognized), and is structurally defined by the colored
+                    arrowheads marking the Property's incoming arcs.
+                </li>
+            </ol>
+                    
+<!--                (a) the state of each Condition depends on the-->
+<!--                collective states of its input Properties (characterizing particular expected situation),-->
+<!--                and is structurally defined by the colored dots marking the Properties' outgoing and the -->
+<!--                Condition's incoming Recognition arcs, and (b) the state of each Property depends on    -->
+<!--                the single or multiple states of its input Conditions (representing the facts of whether-->
+<!--                expected situations have been recognized), and is structurally defined by the colored -->
+<!--                arrowheads marking the Property's incoming arcs.-->
+
+<!--                In short, the structure of the McLN dictates that the state of each Condition node -->
+<!--                depends on the state of one or more of its input Property nodes, characterizing a -->
+<!--                particular expected situation determined by the colors of the dots marking the Properties' -->
+<!--                output arcs. Whereas, the state of each Property node depends on the state of one or -->
+<!--                more of its input Condition nodes. It takes state represented by the color of the -->
+<!--                arrowhead of the arc directed form the Condition node to the dependent Property node -->
+<!--                in case when the state of the Condition indicates that all its input Properties -->
+<!--                represent expected situation denoted by the color of the dots of the Condition's i-->
+<!--                nput (and the Properties' output) arcs.-->
+            </p>
+                </div> <!-- End of definition inner border -->
+            </div> <!-- End of definition outer border -->
+            
+            <p class="section-header">
+                The McLN Model Behavior
+            </p>
+            
+            <p>
+                Since the primary objective of the McLN models is to reproduce the behavior of
+                a modeled system, the elements of the McLN graph are considered to be the simple 
+                virtual discrete devices. Each of these devices has a certain number of inputs and outputs.
+
+                The Properties are endowed with the ability to hold various qualitative states and
+                the Conditions may hold logical states. Both nodes interact with one another by transmitting 
+                and receiving states across their connecting arcs. The arcs act as
+                transfer channels capable of transforming their inputs into designated outputs.
+                
+<!--                The Properties and Conditions—are endowed with the ability to hold -->
+<!--                various qualitative states and interact with one another by transmitting and receiving -->
+<!--                the states via their connecting arcs. The arcs, from the other hand, are endowed with-->
+<!--                the capacity to transform -->
+<!--                their inputs into outputs. -->
+
+               
+            </p>
+            
+<!--            <p>-->
+<!--                A model, thus, is assembled by:<br><br>-->
+<!--                a. connecting each output of a Property to the input of a Recognition arc, and the-->
+<!--                output of that arc to an input of the corresponding Condition;-->
+<!--                <br><br>-->
+<!--                b. connecting each output of a Condition  to the input of a Generation arc, and the-->
+<!--                output of that arc to an input of the corresponding Property.-->
+<!--            </p>-->
+            
+            <p>
+                A model, thus, is assembled by: 
+            <ol style="list-style-type: none; padding-left: 0px;">
+                <li>
+                    (a) connecting each output of a Property to the input of a Recognition arc, and the
+                    output of that arc to an input of the corresponding Condition;
+                </li>
+                <li>
+                    (b) connecting each output of a Condition  to the input of a Generation arc, and the
+                    output of that arc to an input of the corresponding Property.
+                </li>
+            </ol>
+            </p>
+<!--            <p>-->
+<!--                For the purpose of reproducing the behavior of the modeled systems, the McLN graph -->
+<!--                is considered to be the automatically acting virtual discrete device constructed of -->
+<!--                simple functional elements capable of taking various qualitative states, on the -->
+<!--                one hand, and having a certain number of inputs and outputs necessary for interacting-->
+<!--                with one another, on the other hand.-->
+<!--            </p>-->
+            
+<!--            <p>-->
+<!--                For the purpose of reproducing the behavior of the modeled systems, McLN graph-->
+<!--                is considered to be the automatically acting discrete device constructed out of-->
+<!--                simple functional elements capable of taking various qualitative states, on the -->
+<!--                one hand, and having a certain number of inputs and outputs necessary for the -->
+<!--                elements to interact with each other, on the other hand.-->
+<!--            </p>-->
+            
+<!--            <p>-->
+<!--                When describing McLN model behavior, we consider all parts of the model: Properties, -->
+<!--                Conditions and arcs to be simple functional devices. Thus, each part has its input -->
+<!--                and output and is capable of receiving a signal of a state as its input, processing -->
+<!--                the signal, and emitting a derived signal as its output. A model is assembled by -->
+<!--                connecting the outputs of parts to the inputs of other parts. For instance, the -->
+<!--                outputs of the nodes are connected to the inputs of their output arcs, and the -->
+<!--                outputs of the arcs are connected to the inputs of their output nodes.-->
+<!--            </p>-->
+<!--            -->
+<!--            <p>-->
+<!--                Since the primary objective of the McLN models is to reproduce the -->
+<!--                behavior of the systems being modeled, the McLN formalism implements -->
+<!--                system transition  mechanism  from its Properties  current state to -->
+<!--                the next ones, considering the McLN graph as a virtual discrete device. -->
+<!--                The functional elements of this device—Properties and Conditions are -->
+<!--                endowed with the ability to hold various states and interact with each -->
+<!--                other by transmitting signals via connecting arcs, while the arcs have -->
+<!--                the capacity to transform their inputs into outputs.-->
+<!--            </p>-->
+            
+            <p>
+                <b>The&nbsp;Property&nbsp;function</b> is to wait for inputs (proposed states) transmitted from its incoming Generation arcs;
+<!--                receive and hold its state;-->
+                process the collective inputs by choosing a single final state from all received proposed states 
+                   (some, or all, of which may be undefined);
+
+                updates the current state with the chosen final state, when it is defined, or leave the current state
+                unchanged, if the final state is undefined;
+
+                transmit the updated or unchanged current state to the inputs of all its outgoing Recognition arcs.
+                
+                
+<!--                set the chosen final state as the new current state (when it is defined) or discard -->
+<!--                   (if it is undefined) thereby leaving its current state unchanged; -->
+<!--                and transmit the new or unchanged current state to the inputs of all outgoing Recogniser arcs. -->
+                
+            </p>
+            
+            <p>
+                <b>The&nbsp;Recognition&nbsp;arc&nbsp;function</b> is to receive the current state of its input Property;
+                evaluate whether this state matches its pre-defined marking color;
+                and transmit the resulting assessment to the input of the arc's output Condition.
+                
+<!--                The function of a Recognition arc is to receive, via its input, -->
+<!--                output of the arc's input Property current state; determine -->
+<!--                whether that state matches the arc's marking color; and transmit the -->
+<!--                analysis result to the input of the arc's output Condition.-->
+            </p>
+            
+            <p>
+                <b>The&nbsp;Condition&nbsp;function</b> is to receive the outputs from all
+                its incoming Recognition arcs; verify the presence of the expected
+                in the model situation by computing a multivalued conjunction (implemented
+                as a chain of binary conjunction operations applied to outputs of incoming
+                Recognition arcs); update its current status to reflect latest fact of situation
+                recognition (or not recognition); and transmit the status to its 
+                outgoing Generation arcs.
+                
+<!--                The function of a Condition is to receive the outputs of all -->
+<!--                its incoming Recognition arcs; evaluate the fact of presence of the expected -->
+<!--                situation in the model by computing a multivalued conjunction—implemented -->
+<!--                as a chain of binary conjunction operations applied to outputs received -->
+<!--                from the Recognition arcs; set the computed fact as its current state; and -->
+<!--                transmit the fact to the inputs of the outgoing Generation arcs.-->
+            </p>
+
+            <p>
+                <b>The&nbsp;Generation&nbsp;arc&nbsp;function</b> is to receive the status of its input Condition, 
+                indicating the presence or absence of the expected situation; 
+                transform this status into a Property proposed state (according to the arc's arrowhead marking color);
+                and transmit the proposed state to the input of the arc's output Property.
+                
+<!--                -->
+<!--                The function of a Generation arc is to receive, via its input, output -->
+<!--                of the arc's input Condition current state - fact of presence, or absence, in the model the expected-->
+<!--                situation; transform the received fact (in accordance with the arc's marking color)-->
+<!--                into proposed state; and transmit the proposed-->
+<!--                state to the input of the arc's output Property.-->
+            </p>
+            
+<!--            <p>-->
+<!--                The function of the Property vertices is to receive states from the outputs -->
+<!--                of all its incoming arcs-Generators; choose a single final state from all -->
+<!--                the states received (a state that, according to the rules for selecting the -->
+<!--                next Property state, may or may not be defined); preserve the chosen final -->
+<!--                state as the new state (if it is defined) or discard (if it is undefined), -->
+<!--                thereby leaving the Property current state unchanged; and transmit the new -->
+<!--                or unchanged current state to the inputs of the Property's outgoing -->
+<!--                arcs-Recognizers for further processing and computing states of other -->
+<!--                Properties dependent on the modified or unmodified state of the just processed -->
+<!--                Property.-->
+<!--            </p>-->
+<!--            <p>-->
+<!--                Property nodes are depicted as large circles or hexagons, with their current states -->
+<!--                represented by solid background colors. The Condition nodes are the conditions -->
+<!--                enabling changes of states of Property nodes. They are depicted as small white -->
+<!--                circles containing a '+' sign when the condition is satisfied, or by the plain -->
+<!--                solid gray color, when it is not satisfied. Two types of Arcs, directed from the -->
+<!--                Property nodes to the Condition nodes and from the Condition nodes to the Property -->
+<!--                nodes, represent state dependence of the Arcs's output nodes on their input nodes.-->
+<!--                A simple example of the McLN model is presented in Figure 1.-->
+
+<!--            </p>-->
 
         <!--    <p>
                 Being based on the structure of the bipartite directed graph, the McLN model is constructed of
@@ -159,46 +580,452 @@
             </p>-->
 <!--            represent the dependence of these nodes on one another-->
 <!--            respectively-->
-            <img class="center" src="Illustrations/Three-Rules.png" />
 
-            <p style = "text-align: center;">
-                <b>Figure 1.</b> One Property depends on three situations.
+            <p class="section-header">
+                The McLN Model Simulation
+            </p>
+            
+            <p>
+                As with replicating the behavior of any dynamical system, simulating qualitative 
+                systems begins with initialization. McLN models are executed by their McLN Simulation 
+                Engine (MSE), which initializes all Recognition and Generation arcs with their 
+                respective "expected" and "generated" states, alongside all Properties with their 
+                predefined "initial" states. These states are usually established during model 
+                creation—based on the document: "Qualitative System Property States Dependencies 
+                Specification"—and are picked up from a designated state (color) palette. This 
+                initialization phase prepares the model for simulation.
+                
+<!--                As with reproducing the behavior of any dynamical system, simulating the behavior of -->
+<!--                qualitative systems begins with initialization. McLN models are executed by their McLN -->
+<!--                Simulation Engine (MSE) which initializes all Recognition and Generation arcs with -->
+<!--                their respective "expected" and "generated" states, alongside the initialization of -->
+<!--                all Properties with their predefined "initial" states. All these states are usually -->
+<!--                established during model creation (based on the document "Qualitative System Property -->
+<!--                States Dependencies Specification") and are picked up from a designated state (color) -->
+<!--                palette. The initialization phase prepares the model for simulation.-->
+
+                <!--                Replaced on 2026-08-12-->
+<!--                As with reproducing the behavior of any dynamical system, simulating the behavior -->
+<!--                of qualitative systems begins with initialization. McLN models are executed by their -->
+<!--                McLN Simulation Engine (MSE) which  initializes all Recognition and Generation arcs with their -->
+<!--                respective "expected" and "generated" states, alongside initialization of all Properties -->
+<!--                with their predefined "initial" states. All these states are usually established during model -->
+<!--                creation and are picked up from a designated state (color) palette. The initialization -->
+<!--                phase prepares the model for simulation.-->
+                
+<!--                , which is executed as the five-stage event driven process.-->
+                
+<!--                As with reproducing the behavior of any dynamical system, simulating the behavior -->
+<!--                of qualitative system begins with initializing all Recognition and Generation -->
+<!--                arcs with their respective expected and generated states, alongside initialization of-->
+<!--                all Properties with their predefined initial states. All these states are established -->
+<!--                during model creation and are picked up from a designated state (color) palette. This -->
+<!--                initialization phase prepares the model for simulation, which is executed as the event -->
+<!--                driven, five-stage process. -->
+<!--                phase makes the -->
+<!--                model ready for the process of its simulation to be started. It consists of five stages:-->
+            </p>
+            
+            <p>
+                However, the purpose of this section is not to describe the MSE's operating algorithm, but 
+                to examine model behavior as a process of executing functions associated with each element. 
+                Therefore, following the metaphor introduced at the beginning of the "McLN Model Behavior" 
+                section, all model elements are viewed not as interpreted by the MSE, but as autonomous 
+                components. In an idealized sense, these components are regarded as simple virtual devices
+                that perform their functions by themselves and interact with other devices by transmitting  
+                to them and receiving from them current or modified states. Accordingly, the mechanism that 
+                transforms the model from its current state to the next is described below through the operation 
+                of these devices.
+
+<!--                However, the purpose of this section is not to describe the MSE's operating algorithm, but -->
+<!--                rather to examine the model's behavior as a process of executing the functions associated -->
+<!--                with each of its elements. Therefore, following the metaphor (introduced at the beginning -->
+<!--                of the “The McLN Model Behavior” section), all the model's elements are henceforth viewed -->
+<!--                not in terms of their interpretation by the MSE, but rather as autonomous model components -->
+<!--                that—in an idealized sense—perform their functions by themselves and interact with other -->
+<!--                functional components by transmitting to them and receiving from them current or modified -->
+<!--                states. Accordingly, the mechanism transforming the model from its current state to the -->
+<!--                next will be described below in terms of the operation of these devices.-->
+                
+                <!--                Replaced on 2026-08-12-->
+<!--                For the purpose of simplification and clearly of model behavior description (as it was mentioned at -->
+<!--                the beginning of the page), the model's elements are henceforth viewed not in terms of their -->
+<!--                interpretation by the MSE, but rather as autonomous model components -->
+<!--                that—in an idealized sense—perform their functions by themselves  and interact with other functional -->
+<!--                element by transmitting to them and receiving from them current or modified states.-->
+            </p>
+            
+            <p>
+                To preserve the logic of transformations of a model's current state (current states of its properties) 
+                to its next state (updated states of some properties), its behavior is described below as a five-stage 
+                process. When performed by the MSE, this sequence is implemented as event-driven computation.
+
+                
+<!--                To preserve the logic of the transformation of the current state of a model (states of its -->
+<!--                properties) into its next state (computed new states of some of the properties), its behavior is -->
+<!--                described below as the five-stage process. When performed by the MSE, this five-stage sequence is -->
+<!--                implemented as event driven computation.-->
+                
+                <!--                Replaced on 2026-08-12-->
+<!--                To preserve the logic of the transformation of the current state of a model -->
+<!--                (states of its properties) into its next state (updated states of some of the properties), -->
+<!--                its behavior is described below as the five-stage process.-->
             </p>
 
             <p>
-                In the example, Arcs directed from three groups of Property nodes to their Condition nodes represent
-                how recognizing an expected situation depends on a certain combination of 
-                states of Arcs input Property nodes. These
-                arcs are marked with the colored dots of the particular colors which stand for those expected states
-                that the Properties should have in order for their combination to represent the situation
-                that can be recognized.
+                <b>Stage 1 (State Propagation)</b> is performed by the Property output logic. For that, each
+                Property propagates its current state to the inputs of its outgoing  Recognition arcs.
             </p>
 
             <p>
-                The Arcs directed from three Condition nodes to the single Property node represent the state dependence
-                of this Property node on one of the facts of existence of three expected situations. These
-                Arcs have small arrow heads marked with the colors of the proposed states, which
-                the Arcs' output Property node take when the state of one of the Condition nodes indicates
-                that its expected situation has been recognized.
+                <b>Stage 2 (Expectation Assessment)</b> is performed by the Recognition arcs. Each arc:
+                a) receives the current state from its input Property, 
+                b) verifies whether the current state matches the expected marking state (color) assigned to the 
+                arc dot, and 
+                c) transmits the resulting expectation assessment to an input of the arc's target output Condition.
+            </p>
+            
+            <p>
+                <b>Stage 3 (Situation Evaluation)</b> is performed by the Conditions to detect the facts 
+                of presence of expected situations within the model. For that, each Condition: 
+                a) receives the expectation assessments from its all incoming Recognition arcs, 
+                b) verifies whether all expectation assessments indicate the 
+                match of Condition's input Properties current states to expected states, 
+                c) sets its internal situation status that reflects the fact of either presence or absence of the expected situation, and 
+                d) transfers the situation status to the inputs of the Conditions's outgoing Generation arcs.
+            </p>
+            
+            <p>
+                <b>Stage 4 (State Generation)</b> is performed by the Generation arcs. Each arc: 
+                a) receives the situation status from its input Condition,
+                b) transforms the status into the target Property proposed state (based on the
+                marking state (color) of the arc arrowhead, and 
+                c) transfers the proposed state to the input logic of the arc's target output Property.
             </p>
 
             <p>
-                In short, the structure of the McLN dictates that the state of each Condition node depends on
-                the state of one or more of its input Property nodes, characterizing a particular expected situation
-                determined by the colors of the dots marking the Properties' output arcs.
-                Whereas, the state of each Property node depends on the state of
-                one or more of its input Condition nodes. It takes state represented by the color of the arrowhead
-                of the arc directed form the Condition node to the dependent Property node in case when the state of
-                the Condition indicates that all its input Properties represent expected situation denoted by
-                the color of the dots of the Condition's input (and the Properties' output) arcs.
+                <b>Stage 5 (State Selection and Update)</b> is performed by the Property input logic.
+                which is to decide should the Property current state be changed or not. For that, each 
+                Property input logic:
+                a) receives the proposed states from its all incoming Generation arcs,
+                b) chooses a single Property state from all the Property proposed states (some or all of 
+                which may turn out to be undefined), and 
+                c) sets the chosen single state as its new current state (when it is defined) or otherwise 
+                ignores it leaving the current state of the Property effectively unchanged;
+                d) activates output logic to propagate new updated or unchanged current state to the inputs 
+                of the Property's outgoing Recognition arcs, e) fires "Property State Change" event to 
+                trigger the MSE's dependency inference machinery.
+                 
+                
+            </p>
+            
+<!--            <p>-->
+<!--                (1) propagating by the Property nodes output logic their current states to the inputs -->
+<!--                of their outgoing  Recognition arcs; -->
+<!--            </p>-->
+
+<!--            <p>-->
+<!--                (2) recognizing by the Recognition arcs current states of Properties, received by the -->
+<!--                arcs from the outputs of their input Properties, as expected and transmitting the -->
+<!--                obtained recognition results to the inputs of their output Conditions; -->
+<!--            </p>-->
+
+<!--            <p>-->
+<!--                (3) establishing by the Condition nodes facts of presence of the expected situations  -->
+<!--                in the model by evaluating facts that all assessments of the individual Properties -->
+<!--                current states (received from outputs of Recognition arcs)  indicate presence, or -->
+<!--                absence, of the expected situations, and transferring the facts from the outputs of -->
+<!--                the Conditions to the  inputs of their outgoing Generation arcs; -->
+<!--            </p>-->
+
+<!--            <p>-->
+<!--                (4) transforming by the Generation arcs facts of presence, or absence,  of the expected -->
+<!--                situations in the model,  received by the Generation arcs from the outputs of their -->
+<!--                input Conditions, into the properties proposed states (produced in the accordance with -->
+<!--                marking states (colors) of the Generation arcs),  and transferring the obtained proposed -->
+<!--                states to the inputs of the Properties; -->
+<!--            </p>-->
+
+<!--            <p>-->
+<!--                (5) choosing by the Property nodes input logic from all the property proposed states -->
+<!--                received from the outputs of their Generation arcs  (some or all of which may turn out -->
+<!--                to be undefined), a single proposed state, and setting it as the new current state of -->
+<!--                the Property (when it is defined) or ignoring it (if it is not defined) thus leaving the -->
+<!--                current state of the Property effectively unchanged; -->
+<!--            </p>-->
+            
+<!--            <p>-->
+<!--                (1) propagating the Properties current states to the inputs of their outgoing  -->
+<!--                Recognizer arcs; that is performed by the Properties.-->
+<!--            </p>-->
+<!--            -->
+<!--            <p>-->
+<!--                (2) recognizing the current states of Properties, received as the input of the Recognizer arcs,-->
+<!--                as expected and transmitting the obtained recognition assessments from the outputs of -->
+<!--                the arcs to the inputs of their output Conditions; that is performed by the Recognizer arcs.-->
+<!--            </p>-->
+<!--            -->
+<!--            <p>-->
+<!--                (3) establishing the facts of presence in the model -->
+<!--                of the expected situations by identifying that all the received assessments of the -->
+<!--                current states of individual Properties recognition showed the identity of the current -->
+<!--                states of Properties to their expected states, and the transferring by the Conditions -->
+<!--                facts of the presence or absence of the expected situations from their outputs to the -->
+<!--                inputs of their outgoing Generator arcs; that are; that is performed by the input -->
+<!--                logic of the Conditions.-->
+<!--            </p>-->
+<!--            -->
+<!--            <p>-->
+<!--                (4) transforming the facts of presence in the model of the expected situation -->
+<!--                (received as the output from the Conditions) into the Properties proposed states -->
+<!--                and transferring the obtained proposed states depending on the facts of presence -->
+<!--                in the model of the expected situation; that is performed by the Generator arcs.-->
+<!--            </p>-->
+<!--            -->
+<!--            <p>-->
+<!--                (5) selecting from all the input received from the Generator arcs property proposed -->
+<!--                states (some or all of which may turn out to be undefined) the only final state and -->
+<!--                setting it as the new current state of the Property (if it is defined) or ignoring -->
+<!--                it (if it is not defined) thus leaving the current state of the Property essentially -->
+<!--                unchanged; that is performed by the input logic of the Properties.-->
+<!--            </p>-->
+<!--            -->
+            
+            
+            <p class="section-header">
+                The McLN Model Examples
             </p>
 
             <p>
-                <em>Exceptions</em>: If a Condition indicates that the expected situation
-                is not recognized, or the case when two or more Conditions suggest that the Property, dependent
-                on different recognized situations, should take different states, are treated as contradictory, 
-                and the dependent property's state remains unchanged.
+                This section presents two basic McLN structures and explains how
+                the functionality associated with Properties, Conditions, and arcs 
+                drives the behavior of dependence-driven models.
+                
+<!--                This section presents two basic McLN structures and explains how-->
+<!--                the functionality associated with Properties, Conditions, and arcs  makes-->
+<!--                the dependence driven models behavior work.-->
             </p>
+
+            <p>
+                <b>Example 1</b>. This example depicts the most minimal McLN structure. 
+                It consists of only one premise Property, one Recognition
+                arc, one Condition, one Generation arc and one conclusion Property. The
+                Condition's input Recognition arc is marked with red color; consequently,
+                the arc is supposed to recognize a situation when its input premise Property is in
+                the red state. The Condition's output Generation arc is marked with blue
+                color; hence, it is supposed to generate a blue proposed state that
+                the conclusion Property has to take
+                
+                when the Condition holds status indicating that its input Property is in the expected red state.
+                
+<!--                when the Condition holds fact indicating that its input Property is in the expected blue state. -->
+                
+                This example is
+                presented in Figure 2.
+                
+<!--                <b>Example 1</b>. This Example depicts the McLN model's minimal most McLN-->
+<!--                structure. It consists of only one premise Property, one Recognition-->
+<!--                arc, one Condition, one Generation arc and one conclusion Property. The-->
+<!--                Condition's input Recognition arc is marked with red color; consequently,-->
+<!--                the arc is supposed to recognize a situation when its input premise Property is in-->
+<!--                the red state. The Condition's output Generation arc is marked with blue-->
+<!--                color; hence, it is supposed to generate a blue proposed state that -->
+<!--                the conclusion Property has to take when the Condition holds fact-->
+<!--                indicating that its input Property is in the expected blue state. This example is -->
+<!--                presented in Figure 2.-->
+            </p>
+            
+           
+            <p>
+                <img class="center" src="Illustrations/Figure-2-smal-2.png" />
+<!--                <img class="center" src="Illustrations/Three-Rules.png" />-->
+<!--                    <img src="/assets/images/Figure-2-small-2.png"/>-->
+            </p>
+            <center>
+                <p  style="font-family:family:verdana; color:#444444; font-size:17px;">
+                    <b>Figure 2.</b> The most minimal dependence structure and the way it operates.
+                </p>
+            </center>
+
+            <p>
+                <em>Figure 2a</em> illustrates a situation where the premise Property is in its initial
+                (gray) state, which is not expected by the Recognition arc. So,
+                the Condition is not satisfied and its output Generation arc does not generate
+                its proposed state for the conclusion Property to take. Hence, the conclusion
+                Property is still in its initial gray state.
+                
+<!--                <em>Figure 2a</em> illustrates a situation where the premise Property is in its initial-->
+<!--                (gray) state. This state is not what is expected by the Recognition arc. So,-->
+<!--                the Condition is not satisfied and its output Generation arc does not generate-->
+<!--                any proposed state for the conclusion Property to take. Hence, the conclusion-->
+<!--                Property is still in its initial gray state.-->
+            </p>
+
+            <p>
+                <em>Figure 2b</em> illustrates a situation where the premise Property state changed. It
+                is now in the red state. This state is expected by the Recognition arc. Thus,
+                the state is recognized and the Condition is satisfied. As a result, 
+                the Condition's Generation arc is activated and generates its proposed blue state 
+                at its output for the conclusion Property to adopt. Finally, as the conclusion
+                Property does not have any other input arcs and, hence, does not have any competitive 
+                proposed states, it adopts the only available single proposed state and transitions to 
+                blue state.
+                
+<!--                <em>Figure 2b</em> illustrates a situation where the premise Property state changed. It-->
+<!--                is now in the red state. This state is expected by the Recognition arc. Thus,-->
+<!--                the state is recognized and the Condition is satisfied. In the result,-->
+<!--                the Condition's Generation arc is activated and generates on its output a blue-->
+<!--                proposed state for the conclusion Property to take. Finally, as the conclusion-->
+<!--                Property does not have any other input arcs and, hence, does not have any -->
+<!--                competitive proposed states, it takes the only proposed states and goes blue.-->
+            </p>
+
+            <p>
+                <b>Example 2</b>. This example depicts the McLN model's two-dependence structure, which 
+                consists of one conclusion Property whose state is controlled by two 
+                competing dependencies. Each of these dependencies has its own set of two premise Properties.
+                Figure 3 shows three snapshots of the model taken at different times.
+                
+<!--                <b>Example 2</b>. This Example depicts the McLN model's two dependencies structure. This structure-->
+<!--                consists of one conclusion Property the state of which is controlled by two-->
+<!--                competitive dependencies. Each of these dependencies has its own set of two premise Properties.-->
+<!--                Figure 3 represents this model three snapshots made at different times.-->
+            </p>
+
+           
+            <p>
+                <img class="center" src="Illustrations/Figure-3-bordered.png" />
+<!--                <img src="/assets/images/Figure-3-bordered.png"/>-->
+            </p>
+            <center>
+                <p  style="font-family:family:verdana; color:#444444; font-size:17px;">
+                    <b>Figure 3.</b> The conclusion Property state is controlled by two dependencies.
+<!--                    The state of single conclusion Property is controlled -->
+<!--                    by two dependencies.-->
+                </p>
+            </center>
+
+<!--            <p>-->
+<!--                <b>Figure 4. State of conclusion Property is controlled by two dependency rules:-->
+<!--                    a) only the left rule is satisfied,   b) both rules are satisfied,-->
+<!--                    c) only the right rule is satisfied.</b>-->
+<!--            </p>-->
+
+            <p>
+                <em>Figure 3a</em> illustrates the case where only the left dependence is satisfied.
+                In this snapshot, the two left premise Properties match their expected green and yellow states.
+                Consequently, the situation characterized by this combination of states is recognized, 
+                and the dependence of the conclusion Property on this situation is resolved. At the same time, 
+                the situation represented by the pink states of the two right premise 
+                Properties is not recognized. Accordingly, as there is no alternative state 
+                which could be proposed by the right dependence, the conclusion Property adopts the 
+                only available red state proposed by the left Generation arc.
+
+
+<!--                the two left premise Properties are in their green and -->
+<!--                yellow states. That makes the situation characterized by these states combination is-->
+<!--                recognized and dependence of the conclusion Property on this situation is resolved;-->
+<!--                whereas the situation -->
+<!--                represented by two pink states of two right premise Properties is not recognized. Accordingly,-->
+<!--                as there is no alternative proposed state that could be proposed by the right dependence, -->
+<!--                the conclusion Property takes the only available red state proposed by the left Generation arc.-->
+                 
+<!--                left dependence represents a situation that is recognized, while the situation-->
+<!--                represented by the set of two premise properties of the right rule is not-->
+<!--                recognized. Thus, only the left rule appears to be satisfied and generates-->
+<!--                its red state that is offered for the conclusion Property to take. As there-->
+<!--                is no competitive state offered by the right rule the conclusion Property-->
+<!--                has taken the red state.-->
+            </p>
+
+            <p>
+                <em>Figure 3b</em> illustrates the case where both dependencies are simultaneously satisfied.
+                The left situation still remains recognized and generates its proposed red state;
+                whereas, the right situation is now also recognized.
+                Consequently, the right dependence is resolved and its Generation arc
+                produces a competing blue proposed state for the conclusion Property to take. 
+                Since currently both dependencies generate different (red and blue) states and, therefore, 
+                have conflicting and mutually exclusive proposed states, these states are deemed contradicting.
+                In the result, the conclusion Property maintains its prior, unchanged red state.
+                
+                
+<!--                Figure 3b illustrates the case when the left situation is still recognizable and -->
+<!--                generates its red state, however now, the right situation is recognizable, as well. -->
+<!--                Therefore, the right dependence is also resolved and its Generation arc-->
+<!--                produces a competing blue proposed state as the alternative for the conclusion Property -->
+<!--                to take. As these two dependencies have generated two different and -->
+<!--                thus mutually exclusive proposed states, both these states are considered contradicting -->
+<!--                and, as a consequence, the conclusion Property continues to stay in its unchanged red state.-->
+                
+<!--                Figure 3b represents case when the left situation is still recognizable and-->
+<!--                generates its red state, however now, the right situation is recognizable, as well.-->
+<!--                Therefore, the right dependence is also resolved and its Generation arc -->
+<!--                proposed competing blue proposed state as the alternative for the conclusion Property -->
+<!--                to take. As these two dependencies have generated two different and -->
+<!--                thus mutually exclusive proposed states, both these states are considered contradicting -->
+<!--                and, as the consequence of that, the conclusion Property continues to stay in its unchanged red state.-->
+                
+<!--                Figure 3b represents case when the left rule is still recognizing its-->
+<!--                expected situation and generates its red state that is offered for the-->
+<!--                conclusion Property to take. However, the right rule is also recognizing-->
+<!--                its expected situation and generates its blue state that is offered for the-->
+<!--                conclusion Property to take. As these two competitive rules are offering two-->
+<!--                different states for the conclusion Property to take, the offered states are-->
+<!--                considered as competitive and the conclusion Property does not change its-->
+<!--                current state. In other words it continues to stay in the red state.-->
+            </p>
+
+            <p>
+                <em>Figure 3c</em> illustrates the case where only the right dependency is satisfied.
+                In this snapshot, the two left premise Properties have transitioned to states that no longer
+                match the expected situation, causing the left dependence to go unsatisfied.
+                Meanwhile, the right situation remains recognized and its right dependency remains resolved, 
+                as well. Therefore, the right Generation arc still produces its blue state.
+
+                As a result, since at the moment the right dependence has no alternative
+                (as the left dependence, at the moment, does not compete), the conclusion Property adopts the only available blue state. 
+                
+<!--                This makes the right dependence is the only one resolved and its Generation arc-->
+<!--                produces a blue state. Since at the moment the right dependence has no alternative -->
+<!--                (as the left dependence does not compete), the conclusion Property-->
+<!--                adopts the only available blue state.-->
+                
+<!--                This makes the right dependence is the only one resolved and its Generation arc-->
+<!--                produces a blue state. Since at the moment the blue proposed state has no any-->
+<!--                alternative competing state proposed by the left dependence, the conclusion Property-->
+<!--                adopts the only available blue state.-->
+                
+<!--                Figure 3c depicts a case when the two left premise Properties have changed their states-->
+<!--                and no longer characterize any expected situation, while the right situation is still recognizable. -->
+<!--                This makes now only the right dependence is resolved and -->
+<!--                generates its blue state. At the moment the blue proposed state has no alternative -->
+<!--                state proposed by the left dependence, therefore the conclusion Property takes the only -->
+<!--                available blue state.-->
+
+<!--                Figure 3c depicts the case when the set of two premise properties of the left-->
+<!--                rule represents a situation that is not recognized, while the situation represented-->
+<!--                by the set of two premise properties of the right rule is recognized. This time-->
+<!--                only the right rule is satisfied and generates its blue state that is offered for-->
+<!--                the conclusion Property to take. As at the moment there is no alternative offer from-->
+<!--                the left rule, the conclusion Property takes the only offered blue state.-->
+            </p>
+            
+<!--            <p>-->
+<!--                111111<br><br>-->
+<!--                <em>Exceptions and Contradiction Handling</em>: There are possible cases where either (a) a Condition indicates -->
+<!--                that an expected situation is not recognized, and none of a Property expected proposed state is defined,  -->
+<!--                or (b) when two or more Conditions -->
+<!--                simultaneously require that a dependent (conclusion) Property should adopt different-and -->
+<!--                therefore conflicting-states based on conflicting recognized situations are treated as contradictory. -->
+<!--                In such the occasions, the dependent Property's state remains unchanged.-->
+<!--                <br><br>222222222222<br><br>-->
+<!--                <em>Exceptions and Contradiction Handling</em>: If a Condition evaluates  that an expected -->
+<!--                situation is not present (recognized), or if two or more Conditions simultaneously require -->
+<!--                that a dependent Property, should take conflicting  states based on different recognized -->
+<!--                situations, the system state is treated as undefined. In all such instances of logical -->
+<!--                conflict, the Property incoming proposed states are treated as contradictory, and its -->
+<!--                current state remains strictly unchanged.-->
+<!--            </p>-->
 
 <!--            <p>-->
 <!--                Example, presented in Figure 1, is created in the-->
@@ -209,9 +1036,19 @@
 <!--                - the software application supporting development of the McLN models and simulation of-->
 <!--                their behavior.-->
 <!--            </p>-->
+<!--            <div class="exception-block">-->
+            
+<!--            <p  style="font-family:family:verdana; color:#444444; font-size:17px;">-->
+<!--                <b>Exceptions and Contradiction Handling</b>.-->
+<!--              If a Condition evaluates that an expected situation is not present, or if two or more Conditions simultaneously dictate that a dependent Property should switch to conflicting states based on different recognized situations, the system state is treated as contradictory. In all such instances of logical conflict, the incoming proposed signals are overridden, and the dependent property's state remains strictly unchanged.</p>-->
+<!--            </p>-->
 
+            <p style="text-align: center; font-size:13px;">
+                ~ ~ ~ ~ ~ ~&nbsp;&nbsp;&nbsp;!!&nbsp;&nbsp;&nbsp;~ ~ ~ ~ ~ ~
+            </p>
+            
             <p>
-                Example, presented in Figure 1, is created in the
+                Examples, presented in Figures 1, 2 and 3 are created in the
                 <span class="popup-link" onmouseenter="openPopup(event, gmf01)"
                       onmouseleave= "closePopup(gmf01)">
                         <a class="popup-link" href = "../kpa-mses/kpa-mses.html">
@@ -251,7 +1088,7 @@
 <!--            </p>-->
             
             <p>
-                 Several more McLN model exmples 
+                 Several more McLN model examples 
                 <!--illustrating different models Structure, Behavior and ways of Simulation -->
                 can be viewed in action via the Carousel Show, reachable 
                     from the section:
